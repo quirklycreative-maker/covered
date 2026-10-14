@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "covered/country.schema.json",
+  "title": "Covered country pack: country.yaml",
+  "type": "object",
+  "required": ["pack", "sources", "rules", "coverage", "warranty_lookup", "intake", "routes", "contacts", "golden_cases"],
+  "properties": {
+    "pack": {
+      "type": "object",
+      "required": ["id", "version", "status", "market", "languages", "last_checked", "hindi_review"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^country-[a-z]{2}$"},
+        "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "status": {"enum": ["draft", "reviewed", "final"]},
+        "market": {"type": "string", "pattern": "^[a-z]{2}$"},
+        "languages": {"type": "array", "items": {"enum": ["en", "hi"]}, "minItems": 1, "uniqueItems": true},
+        "last_checked": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
+        "hindi_review": {"enum": ["pending", "done"]}
+      }
+    },
+    "sources": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "title", "url", "checked"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+          "kind": {"enum": ["primary", "secondary", "first_hand"]},
+          "title": {"type": "string", "minLength": 5},
+          "url": {"type": "string", "pattern": "^https://"},
+          "checked": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "rules": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "summary", "sources", "verification"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+          "summary": {"type": "string", "minLength": 20},
+          "sources": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+          "verification": {"enum": ["primary_checked", "secondary_only", "unverified", "product_decision"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "required": ["order", "outcomes", "limitation_months", "limitation_basis", "defect_signals", "forum_thresholds_inr", "fee_slabs_inr", "asks", "messages"],
+      "properties": {
+        "order": {"type": "array", "items": {"enum": ["brand_warranty", "protection_plan", "statutory_rights", "out_of_pocket"]}, "minItems": 4, "maxItems": 4, "uniqueItems": true},
+        "outcomes": {"type": "object"},
+        "limitation_months": {"const": 24},
+        "limitation_basis": {"const": "purchase_date"},
+        "defect_signals": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "forum_thresholds_inr": {
+          "type": "object", "required": ["district_max", "state_max"],
+          "properties": {"district_max": {"type": "integer"}, "state_max": {"type": "integer"}}
+        },
+        "fee_slabs_inr": {
+          "type": "array", "minItems": 2,
+          "items": {"type": "object", "required": ["up_to", "fee"], "properties": {"up_to": {"type": ["integer", "null"]}, "fee": {"type": "integer", "minimum": 0}}}
+        },
+        "asks": {"type": "object", "additionalProperties": {"$ref": "#/$defs/text"}},
+        "messages": {"type": "object", "additionalProperties": {"$ref": "#/$defs/text"}}
+      }
+    },
+    "warranty_lookup": {"type": "object", "required": ["steps"]},
+    "intake": {"type": "object", "required": ["flow", "warn_before_diy_in_warranty"]},
+    "routes": {"type": "object", "required": ["ladder", "nch_form_fields", "special"]},
+    "contacts": {"type": "array", "minItems": 1},
+    "golden_cases": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "market", "desc", "input", "expect"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z]+[0-9]+$"},
+          "market": {"const": "in"},
+          "desc": {"type": "string"},
+          "input": {"type": "object", "required": ["purchase_months"]},
+          "expect": {"type": "object", "minProperties": 1}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "$defs": {
+    "text": {
+      "type": "object", "required": ["en", "hi"],
+      "properties": {"en": {"type": "string", "minLength": 1}, "hi": {"type": "string", "minLength": 1}}
+    }
+  }
+}

@@ -1,0 +1,834 @@
+# Covered: India claim templates, data file. Version 0.3.0 (draft).
+# Rebuilt 10 Oct 2026 from draft 0.1.0 after the Section A to E answers.
+# Rules: every {placeholder} is in field_catalog or in the template's own slots.
+#        every English text has a Hindi twin with the same placeholders.
+#        Hindi: bracketed English for formal terms; no gendered verb pairs (करता/करती).
+# This is information, not legal advice. The user decides whether to send or file anything.
+
+pack: {id: templates-in, version: 0.3.0, status: draft, languages: [en, hi], hindi_review: pending}
+
+# What the e-Jagriti upload step asks for, mapped to a template (rule ejagriti_documents).
+ejagriti_bundle:
+  - {upload: Index, template: index}
+  - {upload: Proforma, template: district_commission_complaint, assumption: "Read as the complaint set out in the NCDRC proforma order. Unconfirmed; the manual does not define it."}
+  - {upload: Synopsis, template: synopsis_list_of_dates}
+  - {upload: Memo of Parties, template: memo_of_parties}
+  - {upload: Notarized Affidavit, template: affidavit}
+  - {upload: Vakalatnama, template: null, note: {en: "Only when the user chooses to file through an advocate (routes.filing_mode). The advocate supplies it; Covered gives no template. A self-filing user skips it.", hi: "केवल तब, जब उपयोगकर्ता अधिवक्ता (advocate) के ज़रिए दर्ज करना चुने (routes.filing_mode)। वकालतनामा अधिवक्ता देते हैं; Covered कोई टेम्पलेट नहीं देता। खुद दर्ज करने वाला इसे छोड़ देता है।"}}
+  - {upload: Annexures, template: null, note: {en: "Your own files: bill, warranty card, photos, service records, letters. Label them Annexure A-1, A-2 and so on.", hi: "आपके अपने कागज़: बिल, वारंटी कार्ड, फ़ोटो, सर्विस रिकॉर्ड, पत्र। इन्हें अनुलग्नक (Annexure) A-1, A-2 आदि नाम दें।"}}
+
+field_catalog:
+  date: {en: "Date", hi: "दिनांक", kind: date}
+  place: {en: "Place", hi: "स्थान", kind: text}
+  filing_date: {en: "Date of filing", hi: "दाखिल करने की तारीख", kind: date}
+  user_name: {en: "Your full name", hi: "आपका पूरा नाम", kind: text}
+  user_address: {en: "Your address", hi: "आपका पता", kind: text}
+  user_phone: {en: "Your phone", hi: "आपका फ़ोन", kind: text}
+  user_email: {en: "Your email", hi: "आपका ईमेल", kind: text}
+  user_age: {en: "Your age", hi: "आपकी आयु", kind: number}
+  user_relation_line: {en: "Relation line, e.g. son of Shri X, daughter of Shri X, wife of Shri X", hi: "संबंध की पंक्ति, जैसे पुत्र श्री क, पुत्री श्री क, पत्नी श्री क", kind: text}
+  brand: {en: "Brand", hi: "ब्रांड", kind: text}
+  brand_address: {en: "Brand's registered or service address", hi: "ब्रांड का पंजीकृत या सर्विस पता", kind: text}
+  seller_name: {en: "Seller's name", hi: "विक्रेता का नाम", kind: text}
+  seller_address: {en: "Seller's address", hi: "विक्रेता का पता", kind: text}
+  seller_email: {en: "Seller's email", hi: "विक्रेता का ईमेल", kind: text}
+  seller_phone: {en: "Seller's phone", hi: "विक्रेता का फ़ोन", kind: text}
+  product: {en: "Product", hi: "उत्पाद", kind: text}
+  model: {en: "Model", hi: "मॉडल", kind: text}
+  serial: {en: "Serial number", hi: "सीरियल नंबर", kind: text}
+  invoice_no: {en: "Invoice number", hi: "बिल नंबर", kind: text}
+  purchase_date: {en: "Purchase date", hi: "खरीद की तारीख", kind: date}
+  price_inr: {en: "Price paid, in rupees", hi: "चुकाई गई कीमत, रुपये में", kind: number}
+  warranty_until: {en: "Warranty end date", hi: "वारंटी समाप्ति की तारीख", kind: date}
+  warranty_start_text: {en: "Warranty start (purchase date or installation date)", hi: "वारंटी की शुरुआत (खरीद की तारीख या इंस्टॉलेशन की तारीख)", kind: text}
+  warranty_source_text: {en: "Where the warranty terms came from (warranty card, brand website, Right to Repair portal)", hi: "वारंटी की शर्तें कहाँ से लीं (वारंटी कार्ड, कंपनी की वेबसाइट, राइट टू रिपेयर पोर्टल)", kind: text}
+  imei: {en: "IMEI (phones)", hi: "IMEI (फ़ोन के लिए)", kind: text}
+  installation_date: {en: "Installation date", hi: "इंस्टॉलेशन की तारीख", kind: date}
+  product_registration_no: {en: "Product registration number", hi: "उत्पाद पंजीकरण संख्या", kind: text}
+  defect_statement: {en: "What is wrong with the product", hi: "उत्पाद में क्या खराबी है", kind: text}
+  fault_first_seen: {en: "Date the fault first appeared", hi: "खराबी पहली बार कब आई (तारीख)", kind: date}
+  defect_reason: {en: "Why you think it is a manufacturing defect", hi: "आपको यह निर्माण-दोष क्यों लगता है", kind: text}
+  technician_finding: {en: "What the authorised service centre wrote about the cause", hi: "अधिकृत सर्विस सेंटर ने कारण के बारे में क्या लिखा", kind: text}
+  steps_tried: {en: "Basic checks you tried", hi: "आपने कौन-सी बुनियादी जाँचें कीं", kind: text}
+  service_requests: {en: "Earlier service requests, with numbers and dates", hi: "पहले की सर्विस शिकायतें, नंबर और तारीख सहित", kind: text}
+  service_request_no: {en: "Latest service request number", hi: "सबसे ताज़ा सर्विस शिकायत नंबर", kind: text}
+  gap_statement: {en: "What is still unresolved and what the company has not done", hi: "क्या अब भी हल नहीं हुआ और कंपनी ने क्या नहीं किया", kind: text}
+  remedy_requested: {en: "What you ask for, as an action, e.g. repair the product, replace it, refund the price", hi: "आप क्या चाहते हैं, कार्य के रूप में, जैसे उत्पाद की मरम्मत करें, बदलें, कीमत लौटाएँ", kind: text}
+  reply_days: {en: "Days you allow for a reply (your own deadline; Covered suggests 15)", hi: "जवाब के लिए आपके दिए दिन (आपकी अपनी समय-सीमा; Covered 15 सुझाता है)", kind: number}
+  extra_attachments: {en: "Other attachments", hi: "अन्य संलग्न कागज़", kind: text}
+  plan_provider: {en: "Plan provider or card issuer", hi: "प्लान देने वाली कंपनी या कार्ड जारी करने वाला बैंक", kind: text}
+  plan_number: {en: "Plan number", hi: "प्लान नंबर", kind: text}
+  plan_valid_until: {en: "Plan valid until", hi: "प्लान की मान्यता तक", kind: date}
+  card_name: {en: "Card name", hi: "कार्ड का नाम", kind: text}
+  card_benefit_name: {en: "Name of the card benefit, as the issuer calls it", hi: "कार्ड के लाभ का नाम, जैसा जारीकर्ता बताता है", kind: text}
+  brand_complaint_date: {en: "Date you complained to the company", hi: "कंपनी से शिकायत की तारीख", kind: date}
+  brand_complaint_no: {en: "Company's complaint number", hi: "कंपनी का शिकायत नंबर", kind: text}
+  brand_response: {en: "What the company answered", hi: "कंपनी ने क्या जवाब दिया", kind: text}
+  purchase_district: {en: "District of purchase", hi: "खरीद का ज़िला", kind: text}
+  purchase_state: {en: "State of purchase", hi: "खरीद का राज्य", kind: text}
+  timeline_of_complaints: {en: "How and when you reported it, and what happened", hi: "आपने कब और कैसे शिकायत की, और क्या हुआ", kind: text}
+  notice_date: {en: "Date you sent the notice", hi: "नोटिस भेजने की तारीख", kind: date}
+  notice_days: {en: "Days you give in the notice (your choice; Covered suggests 15)", hi: "नोटिस में दिए गए दिन (आपकी पसंद; Covered 15 सुझाता है)", kind: number}
+  forum_name: {en: "Commission that has jurisdiction, filled by the app from the price", hi: "अधिकार-क्षेत्र वाला आयोग, कीमत के आधार पर ऐप भरता है", kind: derived}
+  district: {en: "District of the Commission", hi: "आयोग का ज़िला", kind: text}
+  state: {en: "State", hi: "राज्य", kind: text}
+  op1_name: {en: "Opposite Party 1 (manufacturer): name", hi: "विपक्षी पक्ष 1 (निर्माता): नाम", kind: text}
+  op1_address: {en: "Opposite Party 1: address", hi: "विपक्षी पक्ष 1: पता", kind: text}
+  op2_name: {en: "Opposite Party 2 (seller): name", hi: "विपक्षी पक्ष 2 (विक्रेता): नाम", kind: text}
+  op2_address: {en: "Opposite Party 2: address", hi: "विपक्षी पक्ष 2: पता", kind: text}
+  op3_name: {en: "Opposite Party 3 (authorised service centre, if any): name", hi: "विपक्षी पक्ष 3 (अधिकृत सर्विस सेंटर, यदि हो): नाम", kind: text}
+  op3_address: {en: "Opposite Party 3: address", hi: "विपक्षी पक्ष 3: पता", kind: text}
+  deficiency_facts: {en: "Facts about the service centre's or seller's failures", hi: "सर्विस सेंटर या विक्रेता की चूक के तथ्य", kind: text}
+  refusal_date: {en: "Date the seller refused to take the goods back", hi: "विक्रेता ने सामान वापस लेने से मना किया, वह तारीख", kind: date}
+  cause_of_action_facts: {en: "What the Opposite Parties did or refused to do", hi: "विपक्षी पक्षों ने क्या किया या करने से मना किया", kind: text}
+  fee_inr: {en: "Filing fee in rupees, filled by the app from the price", hi: "दाखिल करने की फ़ीस, कीमत के आधार पर ऐप भरता है", kind: derived}
+  compensation_inr: {en: "Compensation you ask for, in rupees", hi: "आप जितना मुआवज़ा माँगते हैं, रुपये में", kind: number}
+  costs_inr: {en: "Costs of the proceeding you ask for, in rupees", hi: "कार्यवाही के खर्च की माँग, रुपये में", kind: number}
+  relief_summary: {en: "Short list of reliefs sought", hi: "माँगी गई राहतों की संक्षिप्त सूची", kind: text}
+  outcome_so_far: {en: "What the Opposite Parties answered or did", hi: "विपक्षी पक्षों ने क्या जवाब दिया या किया", kind: text}
+  dated_events: {en: "Other dated events, one per line: date - event", hi: "अन्य तारीख वाली घटनाएँ, हर पंक्ति में: तारीख - घटना", kind: text}
+  annexure_list: {en: "List of annexures with titles", hi: "अनुलग्नकों की सूची, शीर्षक सहित", kind: text}
+  annexure_index_lines: {en: "Annexures with page numbers", hi: "पृष्ठ संख्या सहित अनुलग्नक", kind: text}
+  pg_complaint: {en: "Pages of the complaint", hi: "शिकायत के पृष्ठ", kind: text}
+  pg_synopsis: {en: "Pages of the synopsis", hi: "सार के पृष्ठ", kind: text}
+  pg_memo: {en: "Pages of the memo of parties", hi: "पक्षकारों के ज्ञापन के पृष्ठ", kind: text}
+  pg_affidavit: {en: "Pages of the affidavit", hi: "शपथ-पत्र के पृष्ठ", kind: text}
+  fact_paras: {en: "Paragraph numbers of the complaint the affidavit covers", hi: "शिकायत के जिन पैराग्राफ़ पर शपथ-पत्र है उनके नंबर", kind: text}
+
+templates:
+
+# ---------------------------------------------------------------------------
+- id: brand_seller_letter
+  order: 1
+  title: {en: "Written complaint to the brand and the seller", hi: "ब्रांड और विक्रेता को लिखित शिकायत"}
+  note:
+    en: "Always the first step. reply_days is your own deadline, not a legal period. Two remedy lines exist: use the in-warranty one only if the product is in warranty. If it is out of warranty, use the second one, which does not claim a free repair."
+    hi: "यही हमेशा पहला कदम है। reply_days आपकी अपनी समय-सीमा है, कानूनी अवधि नहीं। उत्पाद वारंटी में हो तभी पहली पंक्ति चुनें। वारंटी खत्म हो चुकी हो तो दूसरी पंक्ति लें, जिसमें मुफ़्त मरम्मत का दावा नहीं है।"
+  rules: [brand_first, defect_definition, nch_is_prelitigation, warranty_source_order, warranty_start_not_fixed_by_law, proof_of_defect_evidence]
+  slots:
+    imei_line:
+      when: "Phones only, when the IMEI is known. Drop the line otherwise."
+      options:
+        present:
+          en: "IMEI: {imei}."
+          hi: "IMEI: {imei}।"
+    installation_line:
+      when: "Products installed by the brand or a technician (AC, TV, refrigerator). Drop the line otherwise."
+      options:
+        present:
+          en: "Installation date: {installation_date}."
+          hi: "इंस्टॉलेशन की तारीख: {installation_date}।"
+    registration_line:
+      when: "When a product registration number exists. Drop the line otherwise."
+      options:
+        present:
+          en: "Product registration number: {product_registration_no}."
+          hi: "उत्पाद पंजीकरण संख्या: {product_registration_no}।"
+    warranty_line:
+      when: "Pick by the coverage result."
+      options:
+        in_warranty:
+          en: "Warranty: up to {warranty_until}, counted from {warranty_start_text}, as stated in {warranty_source_text}."
+          hi: "वारंटी: {warranty_until} तक, {warranty_start_text} से गिनी हुई, जैसा {warranty_source_text} में लिखा है।"
+        assumed:
+          en: "Warranty: I understand it runs up to {warranty_until}. This is the usual period for this kind of product; I could not find the brand's own terms. Please confirm the exact terms in writing."
+          hi: "वारंटी: मेरी जानकारी में यह {warranty_until} तक है। यह इस तरह के उत्पाद की आम अवधि है; मुझे कंपनी की अपनी शर्तें नहीं मिलीं। कृपया सही शर्तें लिखित में बताएँ।"
+        ended:
+          en: "The warranty ended on {warranty_until}. The fault first appeared on {fault_first_seen}."
+          hi: "वारंटी {warranty_until} को खत्म हुई। खराबी पहली बार {fault_first_seen} को आई थी।"
+    defect_origin_line:
+      when: "Only when the user believes the fault comes from how the product was made. Never write it for damage the user caused."
+      options:
+        manufacturing:
+          en: "I believe this is a manufacturing defect because {defect_reason}."
+          hi: "मेरा मानना है कि यह निर्माण-दोष (manufacturing defect) है, क्योंकि {defect_reason}।"
+    technician_report_line:
+      when: "Team proposal, not yet agreed. Only when an authorised service centre has written a finding."
+      options:
+        present:
+          en: "An authorised service centre has recorded in writing that {technician_finding} (copy attached)."
+          hi: "अधिकृत सर्विस सेंटर ने लिखित में दर्ज किया है कि {technician_finding} (प्रति संलग्न)।"
+    remedy_line:
+      when: "Pick by the coverage result."
+      options:
+        in_warranty:
+          en: "Since the product is within its warranty, I request you to {remedy_requested} at no cost to me."
+          hi: "उत्पाद वारंटी अवधि में है, इसलिए अनुरोध है कि बिना किसी शुल्क के {remedy_requested}।"
+        ended_defect:
+          en: "I request you to {remedy_requested}. I believe the fault is a defect in the product and not the result of use or misuse. Please inspect it and state in writing whether you accept this. If any charge is claimed, please give the reason in writing."
+          hi: "अनुरोध है कि {remedy_requested}। मेरा मानना है कि खराबी उत्पाद के दोष (defect) के कारण है, उपयोग या दुरुपयोग के कारण नहीं। कृपया जाँच करके लिखित में बताएँ कि आप इससे सहमत हैं या नहीं। कोई शुल्क माँगा जाए तो उसका कारण भी लिखित में दें।"
+  body:
+    en: |
+      Date: {date}
+
+      To:
+      1. Customer Care, {brand}
+      2. {seller_name}
+
+      Subject: Complaint about defective {product}, model {model}, serial {serial}, invoice {invoice_no}
+
+      Dear Sir or Madam,
+
+      I bought a {brand} {product}, model {model}, serial number {serial}, from {seller_name} on {purchase_date} for Rs {price_inr} (invoice {invoice_no}, copy attached).
+      {imei_line}
+      {installation_line}
+      {registration_line}
+      {warranty_line}
+
+      The defect: {defect_statement}. It first appeared on {fault_first_seen}. {defect_origin_line} {technician_report_line}
+
+      What I have done so far: basic checks: {steps_tried}. Service requests: {service_requests}. Latest service request number: {service_request_no}.
+
+      What is still unresolved: {gap_statement}
+
+      {remedy_line} Please reply in writing within {reply_days} days with the date of the visit or the action you will take.
+
+      If the matter is not resolved, I will register a grievance with the National Consumer Helpline and may file a complaint before the Consumer Disputes Redressal Commission under the Consumer Protection Act, 2019.
+
+      Attached: invoice, warranty card, photographs of the defect, earlier complaint numbers{extra_attachments}.
+
+      Yours faithfully,
+      {user_name}
+      {user_address}
+      Phone: {user_phone}  Email: {user_email}
+    hi: |
+      दिनांक: {date}
+
+      सेवा में,
+      1. कस्टमर केयर, {brand}
+      2. {seller_name}
+
+      विषय: खराब {product} की शिकायत - मॉडल {model}, सीरियल {serial}, बिल नंबर {invoice_no}
+
+      महोदय/महोदया,
+
+      मैंने {seller_name} से {purchase_date} को {brand} कंपनी का {product}, मॉडल {model}, सीरियल नंबर {serial}, {price_inr} रुपये में खरीदा था (बिल नंबर {invoice_no}, प्रति संलग्न)।
+      {imei_line}
+      {installation_line}
+      {registration_line}
+      {warranty_line}
+
+      खराबी: {defect_statement}। यह पहली बार {fault_first_seen} को आई। {defect_origin_line} {technician_report_line}
+
+      अब तक मैंने यह किया है: बुनियादी जाँचें: {steps_tried}। सर्विस शिकायतें: {service_requests}। सबसे ताज़ा सर्विस शिकायत नंबर: {service_request_no}।
+
+      जो बात अब भी हल नहीं हुई: {gap_statement}
+
+      {remedy_line} कृपया {reply_days} दिनों के भीतर लिखित उत्तर दें, जिसमें आने की तारीख या की जाने वाली कार्रवाई बताई गई हो।
+
+      मामला हल न होने पर राष्ट्रीय उपभोक्ता हेल्पलाइन (National Consumer Helpline) में शिकायत दर्ज कराई जाएगी, और उपभोक्ता संरक्षण अधिनियम, 2019 के तहत उपभोक्ता विवाद निवारण आयोग (Consumer Disputes Redressal Commission) में शिकायत भी की जा सकती है।
+
+      संलग्न: बिल, वारंटी कार्ड, खराबी की फ़ोटो, पहले के शिकायत नंबर{extra_attachments}।
+
+      भवदीय,
+      {user_name}
+      {user_address}
+      फ़ोन: {user_phone}  ईमेल: {user_email}
+
+# ---------------------------------------------------------------------------
+- id: plan_provider_claim
+  order: 2
+  title: {en: "Claim to the extended-warranty, AMC, insurance or card-benefit provider", hi: "एक्सटेंडेड वारंटी, AMC, बीमा या कार्ड-लाभ देने वाले को दावा"}
+  note:
+    en: "Claim rules come from the plan or card document, not from the law. Keep the terms at hand. Use the card variant only if the product was bought on that card and the benefit is active; purchase protection that covers only theft or accidental damage is not an extended warranty."
+    hi: "दावे के नियम प्लान या कार्ड के दस्तावेज़ से तय होते हैं, कानून से नहीं। शर्तें पास रखें। कार्ड वाला रूप तभी लें जब उत्पाद उसी कार्ड से खरीदा गया हो और लाभ चालू हो; जो सुरक्षा केवल चोरी या आकस्मिक नुकसान को कवर करती है, वह एक्सटेंडेड वारंटी नहीं है।"
+  rules: [card_benefit_counts, warranty_source_order, defect_definition]
+  slots:
+    subject_ref:
+      when: "Pick by the type of cover."
+      options:
+        plan:
+          en: "Claim under plan number {plan_number}"
+          hi: "प्लान नंबर {plan_number} के तहत दावा"
+        card:
+          en: "Claim under the {card_benefit_name} benefit of the {card_name} card"
+          hi: "{card_name} कार्ड के {card_benefit_name} लाभ के तहत दावा"
+    cover_line:
+      when: "Pick by the type of cover."
+      options:
+        plan:
+          en: "is covered by your plan number {plan_number}, valid until {plan_valid_until}."
+          hi: "आपके प्लान नंबर {plan_number} में कवर है, जो {plan_valid_until} तक मान्य है।"
+        card:
+          en: "was bought using your {card_name} card, which carries the benefit \"{card_benefit_name}\". The benefit was active on the purchase date and is active now."
+          hi: "आपके {card_name} कार्ड से खरीदा गया था, जिसमें \"{card_benefit_name}\" लाभ है। यह लाभ खरीद की तारीख पर चालू था और अब भी चालू है।"
+  body:
+    en: |
+      Date: {date}
+
+      To: {plan_provider}
+
+      Subject: {subject_ref} - {brand} {product}, model {model}, serial {serial}
+
+      Dear Sir or Madam,
+
+      My {brand} {product}, model {model}, serial number {serial}, bought on {purchase_date} (invoice {invoice_no}), {cover_line}
+
+      Since {fault_first_seen}, it has this fault: {defect_statement}. I tried these basic checks: {steps_tried}. The fault remains.
+
+      I request you to {remedy_requested} under the cover, and to reply in writing within {reply_days} days with the claim number and the next steps.
+
+      Attached: plan or card benefit document, invoice, photographs of the defect.
+
+      Yours faithfully,
+      {user_name}
+      {user_address}
+      Phone: {user_phone}  Email: {user_email}
+    hi: |
+      दिनांक: {date}
+
+      सेवा में: {plan_provider}
+
+      विषय: {subject_ref} - {brand} कंपनी का {product}, मॉडल {model}, सीरियल {serial}
+
+      महोदय/महोदया,
+
+      {purchase_date} को खरीदा गया मेरा {brand} कंपनी का {product}, मॉडल {model}, सीरियल नंबर {serial} (बिल नंबर {invoice_no}), {cover_line}
+
+      {fault_first_seen} से इसमें यह खराबी है: {defect_statement}। मैंने ये बुनियादी जाँचें कीं: {steps_tried}। खराबी अब भी है।
+
+      अनुरोध है कि इस कवर के तहत {remedy_requested}, और {reply_days} दिनों के भीतर लिखित में दावा नंबर और आगे की प्रक्रिया बताएँ।
+
+      संलग्न: प्लान या कार्ड-लाभ का दस्तावेज़, बिल, खराबी की फ़ोटो।
+
+      भवदीय,
+      {user_name}
+      {user_address}
+      फ़ोन: {user_phone}  ईमेल: {user_email}
+
+# ---------------------------------------------------------------------------
+- id: nch_grievance
+  order: 3
+  title: {en: "Grievance for the National Consumer Helpline", hi: "राष्ट्रीय उपभोक्ता हेल्पलाइन के लिए शिकायत"}
+  note:
+    en: "The text goes into the form field 'Grievance details'. The other form fields are in form_map. The form was read from screenshots after login; the drop-down values were not captured, so the app shows a hint and the user picks from the list."
+    hi: "यह पाठ फ़ॉर्म के 'Grievance details' खाने में जाता है। फ़ॉर्म के बाकी खाने form_map में हैं। फ़ॉर्म लॉगिन के बाद के स्क्रीनशॉट से पढ़ा गया; ड्रॉप-डाउन के विकल्प नहीं मिले, इसलिए ऐप संकेत दिखाता है और उपयोगकर्ता सूची से चुनता है।"
+  rules: [nch_is_prelitigation, nch_form_fields, brand_first]
+  form_map:
+    - {field: grievance_type, choose: "Pick from the list. Hint: complaint.", required: true}
+    - {field: grievance_classification, choose: "Pick from the list.", required: true}
+    - {field: company, from: [brand], note: "If the brand is not listed, select Other and type it.", required: true}
+    - {field: sector_industry, choose: "Pick the sector for the product type.", required: true}
+    - {field: category, choose: "Pick from the list.", required: true}
+    - {field: nature_of_grievance, choose: "Pick from the list. Hint: defective product.", required: true}
+    - {field: product_value, from: [price_inr], required: true}
+    - {field: dealer_details, from: [seller_name, seller_address, seller_email, seller_phone], note: "Optional, but it improves the chance of redressal.", required: false}
+    - {field: grievance_details, from: [body], required: true}
+    - {field: purchase_district_state, from: [purchase_district, purchase_state], required: true}
+    - {field: expectation, from: [remedy_requested], required: true}
+    - {field: registered_with_company, choose: "Answer Yes. The company's complaint number goes in the details text.", required: true}
+    - {field: documents, choose: "Up to 3 files, JPG, JPEG, PNG, DOC or PDF, 5 MB each, no double extension. Suggest: invoice, warranty card, one photo or the company's reply.", required: false}
+  body:
+    en: |
+      Company: {brand}. Product: {product}, model {model}, serial {serial}.
+      Bought on {purchase_date} for Rs {price_inr}, invoice {invoice_no}.
+      Problem: {defect_statement}, since {fault_first_seen}.
+      Registered with the company: yes, on {brand_complaint_date}, complaint number {brand_complaint_no}. Their response: {brand_response}.
+      What I want: {remedy_requested}.
+      I have the invoice, warranty card and photos and can share them.
+    hi: |
+      कंपनी: {brand}। उत्पाद: {product}, मॉडल {model}, सीरियल {serial}।
+      {purchase_date} को {price_inr} रुपये में खरीदा, बिल नंबर {invoice_no}।
+      समस्या: {defect_statement}, {fault_first_seen} से।
+      कंपनी में दर्ज: हाँ, {brand_complaint_date} को, शिकायत नंबर {brand_complaint_no}। कंपनी का जवाब: {brand_response}।
+      मेरी माँग: {remedy_requested}।
+      मेरे पास बिल, वारंटी कार्ड और फ़ोटो हैं और ज़रूरत पड़ने पर भेजे जा सकते हैं।
+
+# ---------------------------------------------------------------------------
+- id: notice_before_complaint
+  order: 4
+  title: {en: "Notice before filing a consumer complaint (sent by the consumer)", hi: "उपभोक्ता शिकायत से पहले नोटिस (उपभोक्ता द्वारा भेजा गया)"}
+  note:
+    en: "A step in Covered's flow: the app asks you to send this before it prepares the complaint, and to wait out the days you chose. It is not a lawyer's legal notice. The law does not require it as far as we found (rule no_notice_required_before_filing, unverified), so never say it is a legal duty. Send it by registered post or email and keep the proof of delivery. It does not stop the 2-year limit, which counts from the purchase date, so send it early. notice_days is your own choice. The app fills forum_name from the price paid."
+    hi: "Covered की प्रक्रिया का एक चरण: शिकायत तैयार करने से पहले ऐप आपसे यह नोटिस भेजने और आपके चुने दिनों तक इंतज़ार करने को कहता है। यह वकील का कानूनी नोटिस नहीं है। हमारी जानकारी में कानून इसे अनिवार्य नहीं करता (नियम no_notice_required_before_filing, असत्यापित), इसलिए इसे कभी कानूनी ज़िम्मेदारी न बताएँ। इसे रजिस्टर्ड डाक या ईमेल से भेजें और भेजने का प्रमाण रखें। इससे 2 साल की समय-सीमा नहीं रुकती, जो खरीद की तारीख से गिनी जाती है, इसलिए इसे जल्दी भेजें। notice_days आपकी अपनी पसंद है। forum_name ऐप चुकाई गई कीमत से भरता है।"
+  rules: [no_notice_required_before_filing, notice_step_in_flow, defect_definition, limitation_two_years, limitation_counted_from_purchase, district_pecuniary_limit]
+  body:
+    en: |
+      Date: {date}
+
+      From: {user_name}, {user_address}
+
+      To:
+      1. {brand}, {brand_address}
+      2. {seller_name}, {seller_address}
+
+      Subject: Notice before filing a consumer complaint - defective {product}, model {model}, serial {serial}
+
+      1. On {purchase_date} I bought the above product for Rs {price_inr} (invoice {invoice_no}).
+      2. The product has the following fault, which first appeared on {fault_first_seen}: {defect_statement}.
+      3. I reported it as follows, without a resolution: {timeline_of_complaints}.
+      4. I request you to {remedy_requested} within {notice_days} days of receiving this notice.
+      5. If you do not, I intend to file a complaint before the {forum_name} under the Consumer Protection Act, 2019, seeking the reliefs available under that Act, without further notice.
+
+      {user_name}
+    hi: |
+      दिनांक: {date}
+
+      प्रेषक: {user_name}, {user_address}
+
+      सेवा में:
+      1. {brand}, {brand_address}
+      2. {seller_name}, {seller_address}
+
+      विषय: उपभोक्ता शिकायत दर्ज करने से पहले नोटिस - खराब {product}, मॉडल {model}, सीरियल {serial}
+
+      1. मैंने {purchase_date} को उपर्युक्त उत्पाद {price_inr} रुपये में खरीदा (बिल नंबर {invoice_no})।
+      2. उत्पाद में यह खराबी है, जो पहली बार {fault_first_seen} को आई: {defect_statement}।
+      3. मैंने इसकी शिकायत इस प्रकार की, पर समाधान नहीं हुआ: {timeline_of_complaints}।
+      4. अनुरोध है कि यह नोटिस प्राप्त होने के {notice_days} दिनों के भीतर {remedy_requested}।
+      5. ऐसा न होने पर, बिना और नोटिस दिए, उपभोक्ता संरक्षण अधिनियम, 2019 के तहत {forum_name} में शिकायत दर्ज कराई जाएगी और उस अधिनियम में उपलब्ध राहतें माँगी जाएँगी।
+
+      {user_name}
+
+# ---------------------------------------------------------------------------
+- id: district_commission_complaint
+  order: 5
+  title: {en: "Complaint before the District Consumer Disputes Redressal Commission", hi: "ज़िला उपभोक्ता विवाद निवारण आयोग (District Commission) के समक्ष शिकायत"}
+  note:
+    en: "For goods priced up to Rs 50 lakh. Above that the app shows the State or National Commission message and no template (MVP). Used for the e-Jagriti 'Proforma' upload; that reading is an assumption. The app drops empty slots and numbers the grounds and the reliefs. Keep only the grounds that match the case. Annexure labels A-1, A-2 follow a first-hand filing report and are unconfirmed. Hindi pleading terms differ by state; use the term on the state commission's own site if it differs. A District Commission may not accept Hindi; check before filing."
+    hi: "50 लाख रुपये तक की कीमत के सामान के लिए। इससे ऊपर ऐप राज्य या राष्ट्रीय आयोग का संदेश दिखाता है, टेम्पलेट नहीं (MVP)। e-Jagriti के 'Proforma' अपलोड के लिए प्रयुक्त; यह पढ़ना एक अनुमान है। ऐप खाली स्लॉट हटाकर आधार और राहतों को क्रम-संख्या देता है। केवल वे आधार रखें जो मामले पर लागू हों। अनुलग्नक के नाम A-1, A-2 एक उपभोक्ता की दायर प्रक्रिया की रिपोर्ट पर आधारित हैं और अपुष्ट हैं। हिंदी में पदों के रूप राज्य के अनुसार बदलते हैं; राज्य आयोग की अपनी साइट का शब्द अलग हो तो वही लें। ज़िला आयोग हिंदी स्वीकार न करे, यह संभव है; दाखिल करने से पहले पूछ लें।"
+  rules: [consumer_definition, defect_definition, deficiency_is_for_services, utp_refuse_defective_return, utp_no_bill, district_pecuniary_limit, act_s34_1_text_differs, territorial_complainant_residence, limitation_two_years, limitation_counted_from_purchase, fee_table_rule7, reliefs_available, who_can_file, ejagriti_is_the_portal, language_scope_mvp]
+  slots:
+    warranty_fact:
+      when: "Pick by the coverage result. Never use an assumed warranty in a filing."
+      options:
+        in_warranty:
+          en: "The warranty runs until {warranty_until}, counted from {warranty_start_text} (Annexure A-2)."
+          hi: "वारंटी {warranty_until} तक है, जो {warranty_start_text} से गिनी गई है (अनुलग्नक A-2)।"
+        ended:
+          en: "The warranty ended on {warranty_until} (Annexure A-2). The fault first appeared on {fault_first_seen}."
+          hi: "वारंटी {warranty_until} को समाप्त हुई (अनुलग्नक A-2)। खराबी पहली बार {fault_first_seen} को आई थी।"
+    technician_fact:
+      when: "Team proposal. Only when a written report from an authorised service centre exists."
+      options:
+        present:
+          en: "An authorised service centre recorded in writing that {technician_finding} (Annexure A-5)."
+          hi: "अधिकृत सर्विस सेंटर ने लिखित में दर्ज किया कि {technician_finding} (अनुलग्नक A-5)।"
+    notice_fact:
+      when: "Covered's flow requires the notice first. Drop only if the user skipped it."
+      options:
+        sent:
+          en: "The Complainant sent a written notice to the Opposite Parties on {notice_date} and allowed {notice_days} days to respond (Annexure A-6). Their response: {outcome_so_far}"
+          hi: "शिकायतकर्ता ने {notice_date} को विपक्षी पक्षों को लिखित नोटिस भेजा और जवाब के लिए {notice_days} दिन दिए (अनुलग्नक A-6)। उनका जवाब: {outcome_so_far}"
+    ground_defect:
+      when: "Always."
+      options:
+        always:
+          en: "The fault is a defect within the meaning of section 2(10) of the Act."
+          hi: "यह खराबी अधिनियम की धारा 2(10) के अर्थ में दोष (defect) है।"
+    ground_deficiency:
+      when: "Only if a service centre or seller failed in repair or service."
+      options:
+        present:
+          en: "The failure to repair the product properly is a deficiency in service within the meaning of section 2(11)."
+          hi: "उत्पाद की ठीक से मरम्मत न करना धारा 2(11) के अर्थ में सेवा में कमी (deficiency in service) है।"
+    ground_return:
+      when: "Only if the seller refused to take back the defective goods and refund the price."
+      options:
+        present:
+          en: "Opposite Party 2 refused on {refusal_date} to take back the defective goods and refund the price within the period stated on the bill or, where none is stated, within thirty days. This is an unfair trade practice under section 2(47)(viii)."
+          hi: "विपक्षी पक्ष 2 ने {refusal_date} को बिल पर लिखी अवधि के भीतर, या अवधि न लिखी हो तो तीस दिन के भीतर, दोषपूर्ण सामान वापस लेने और कीमत लौटाने से मना कर दिया। यह धारा 2(47)(viii) के तहत अनुचित व्यापार प्रथा (unfair trade practice) है।"
+    ground_bill:
+      when: "Only if no bill, cash memo or receipt was issued."
+      options:
+        present:
+          en: "Not issuing a bill, cash memo or receipt is an unfair trade practice under section 2(47)(vii)."
+          hi: "बिल, कैश मेमो या रसीद न देना धारा 2(47)(vii) के तहत अनुचित व्यापार प्रथा (unfair trade practice) है।"
+    territorial_basis:
+      when: "Pick the basis that applies. Section 34(2)."
+      options:
+        residence:
+          en: "The Complainant resides or personally works for gain within the territorial jurisdiction of this Commission (section 34(2))."
+          hi: "शिकायतकर्ता इस आयोग के क्षेत्र में निवास करता है या स्वयं लाभ के लिए काम करता है (धारा 34(2))।"
+        opposite_party:
+          en: "An Opposite Party resides or carries on business within the territorial jurisdiction of this Commission (section 34(2))."
+          hi: "कोई विपक्षी पक्ष इस आयोग के क्षेत्र में रहता है या कारोबार करता है (धारा 34(2))।"
+        cause_of_action:
+          en: "The cause of action arose, wholly or in part, within the territorial jurisdiction of this Commission (section 34(2))."
+          hi: "वाद-कारण (cause of action) पूरा या आंशिक रूप से इस आयोग के क्षेत्र में उत्पन्न हुआ (धारा 34(2))।"
+    limitation_line:
+      when: "Pick by the limitation result. The two years are counted from the date of purchase (product rule, the cautious reading of s.69)."
+      options:
+        within:
+          en: "This complaint is filed within two years of the date of purchase, and therefore within two years of the cause of action (section 69)."
+          hi: "यह शिकायत खरीद की तारीख से दो वर्ष के भीतर, और इसलिए वाद-कारण (cause of action) से भी दो वर्ष के भीतर, दाखिल की जा रही है (धारा 69)।"
+        condonation:
+          en: "This complaint is filed more than two years after the date of purchase. An application for condonation of delay, stating sufficient cause, is filed with it (section 69)."
+          hi: "यह शिकायत खरीद की तारीख से दो वर्ष से अधिक बाद दाखिल की जा रही है। देरी माफ़ी (condonation of delay) का आवेदन, पर्याप्त कारण बताते हुए, साथ में दाखिल है (धारा 69)।"
+    fee_statement:
+      when: "Filled by the app from price_inr using the fee table in country.yaml."
+      options:
+        nil:
+          en: "The value of the goods paid is up to Rs 5 lakh; no fee is payable."
+          hi: "चुकाए गए सामान का मूल्य 5 लाख रुपये तक है; कोई फ़ीस देय नहीं है।"
+        amount:
+          en: "The fee of Rs {fee_inr} prescribed for goods valued at Rs {price_inr} has been paid."
+          hi: "मूल्य {price_inr} रुपये के सामान के लिए निर्धारित {fee_inr} रुपये की फ़ीस जमा की गई है।"
+    relief_list:
+      when: "The user picks one or more. Section 39(1) clause in brackets is for the team, not printed in the complaint."
+      multi: true
+      options:
+        remove_defect:
+          clause: "39(1)(f)"
+          en: "remove the defect in the product, free of cost;"
+          hi: "उत्पाद का दोष निःशुल्क दूर करें;"
+        replace:
+          clause: "39(1)(b)"
+          en: "replace the product with a new product of the same description, free from defect;"
+          hi: "उत्पाद को उसी विवरण के नए, दोष-मुक्त उत्पाद से बदलें;"
+        refund:
+          clause: "39(1)(c)"
+          en: "return the price of Rs {price_inr}, with interest as the Commission decides;"
+          hi: "कीमत {price_inr} रुपये, आयोग द्वारा तय ब्याज सहित, लौटाएँ;"
+        compensation:
+          clause: "39(1)(d)"
+          en: "pay compensation of Rs {compensation_inr} for the loss and injury suffered;"
+          hi: "हुई हानि और क्षति के लिए {compensation_inr} रुपये मुआवज़ा (compensation) दें;"
+        stop_utp:
+          clause: "39(1)(g)"
+          en: "discontinue the unfair trade practice and not repeat it;"
+          hi: "अनुचित व्यापार प्रथा बंद करें और उसे दोहराएँ नहीं;"
+        costs:
+          clause: "39(1)(m)"
+          en: "pay Rs {costs_inr} as the costs of this proceeding."
+          hi: "इस कार्यवाही के खर्च (costs) के रूप में {costs_inr} रुपये दें।"
+  body:
+    en: |
+      BEFORE THE DISTRICT CONSUMER DISPUTES REDRESSAL COMMISSION, {district}, {state}
+
+      Consumer Complaint No. ______ of ______
+
+      IN THE MATTER OF:
+      {user_name}, aged {user_age}, {user_relation_line}, resident of {user_address}. Phone {user_phone}, email {user_email}.
+      ... Complainant
+
+      VERSUS
+
+      1. {op1_name}, {op1_address} (manufacturer)
+      2. {op2_name}, {op2_address} (seller)
+      3. {op3_name}, {op3_address} (authorised service centre, if any)
+      ... Opposite Parties
+
+      COMPLAINT UNDER SECTION 35 OF THE CONSUMER PROTECTION ACT, 2019
+
+      A. SYNOPSIS AND LIST OF DATES
+      Filed separately; see pages {pg_synopsis}.
+
+      B. FACTS
+      1. The Complainant bought a {product}, model {model}, serial {serial}, from Opposite Party 2 on {purchase_date} for Rs {price_inr}, invoice {invoice_no} (Annexure A-1). The Complainant bought it for personal use and is a consumer under section 2(7).
+      2. {warranty_fact}
+      3. The product developed the following fault, which first appeared on {fault_first_seen}: {defect_statement} (photographs, Annexure A-3).
+      4. The Complainant approached the Opposite Parties as follows (Annexure A-4): {timeline_of_complaints}
+      5. {deficiency_facts}
+      6. {technician_fact}
+      7. {notice_fact}
+
+      C. GROUNDS
+      1. {ground_defect}
+      2. {ground_deficiency}
+      3. {ground_return}
+      4. {ground_bill}
+
+      D. JURISDICTION, LIMITATION AND FEE
+      1. The value of the goods paid as consideration is Rs {price_inr}, which is within the pecuniary jurisdiction of this Commission.
+      2. {territorial_basis}
+      3. The cause of action arose when the fault first appeared on {fault_first_seen}, and continued when {cause_of_action_facts}. {limitation_line}
+      4. {fee_statement}
+
+      E. RELIEF
+      The Complainant prays that this Commission direct the Opposite Parties to:
+      {relief_list}
+
+      VERIFICATION
+      Verified by me, {user_name}, the Complainant, that the contents of this complaint are true and correct to my knowledge and belief, and that nothing material has been concealed.
+
+      Place: {place}
+      Date: {date}
+      Signature of the Complainant
+
+      LIST OF ANNEXURES
+      {annexure_list}
+    hi: |
+      ज़िला उपभोक्ता विवाद निवारण आयोग (District Consumer Disputes Redressal Commission), {district}, {state} के समक्ष
+
+      उपभोक्ता शिकायत संख्या ______ वर्ष ______
+
+      मामला:
+      {user_name}, आयु {user_age}, {user_relation_line}, निवासी {user_address}। फ़ोन {user_phone}, ईमेल {user_email}।
+      ... शिकायतकर्ता (Complainant)
+
+      बनाम
+
+      1. {op1_name}, {op1_address} (निर्माता)
+      2. {op2_name}, {op2_address} (विक्रेता)
+      3. {op3_name}, {op3_address} (अधिकृत सर्विस सेंटर, यदि हो)
+      ... विपक्षी पक्ष (Opposite Parties)
+
+      उपभोक्ता संरक्षण अधिनियम, 2019 की धारा 35 के अंतर्गत शिकायत
+
+      क. सार और तारीखों की सूची (Synopsis and List of Dates)
+      अलग से दाखिल; पृष्ठ {pg_synopsis} देखें।
+
+      ख. तथ्य
+      1. शिकायतकर्ता ने विपक्षी पक्ष 2 से {purchase_date} को {product}, मॉडल {model}, सीरियल {serial}, {price_inr} रुपये में खरीदा, बिल नंबर {invoice_no} (अनुलग्नक A-1)। शिकायतकर्ता ने इसे निजी उपयोग के लिए खरीदा और धारा 2(7) के तहत उपभोक्ता है।
+      2. {warranty_fact}
+      3. उत्पाद में यह खराबी आई, जो पहली बार {fault_first_seen} को दिखी: {defect_statement} (फ़ोटो, अनुलग्नक A-3)।
+      4. शिकायतकर्ता ने विपक्षी पक्षों से इस प्रकार संपर्क किया (अनुलग्नक A-4): {timeline_of_complaints}
+      5. {deficiency_facts}
+      6. {technician_fact}
+      7. {notice_fact}
+
+      ग. आधार
+      1. {ground_defect}
+      2. {ground_deficiency}
+      3. {ground_return}
+      4. {ground_bill}
+
+      घ. क्षेत्राधिकार, समय-सीमा और फ़ीस
+      1. चुकाए गए सामान का मूल्य {price_inr} रुपये है, जो इस आयोग के आर्थिक क्षेत्राधिकार (pecuniary jurisdiction) में है।
+      2. {territorial_basis}
+      3. वाद-कारण तब उत्पन्न हुआ जब खराबी पहली बार {fault_first_seen} को आई, और तब भी जारी रहा जब {cause_of_action_facts}। {limitation_line}
+      4. {fee_statement}
+
+      ङ. माँगी गई राहत
+      शिकायतकर्ता की प्रार्थना है कि आयोग विपक्षी पक्षों को निर्देश दे कि वे:
+      {relief_list}
+
+      सत्यापन (Verification)
+      मुझ, {user_name}, शिकायतकर्ता द्वारा सत्यापित किया जाता है कि इस शिकायत की बातें मेरी जानकारी और विश्वास में सही हैं और कोई महत्वपूर्ण बात छिपाई नहीं गई है।
+
+      स्थान: {place}
+      दिनांक: {date}
+      शिकायतकर्ता के हस्ताक्षर
+
+      अनुलग्नकों की सूची (List of Annexures)
+      {annexure_list}
+
+# ---------------------------------------------------------------------------
+- id: index
+  order: 6
+  title: {en: "Index of documents", hi: "दस्तावेज़ों की अनुक्रमणिका (Index)"}
+  note:
+    en: "First upload on e-Jagriti. Page numbers are filled after the set is paged. Delete the Vakalatnama row if no advocate is engaged."
+    hi: "e-Jagriti पर पहला अपलोड। पृष्ठ संख्या पूरा सेट पन्ने-क्रम में लगाने के बाद भरें। अधिवक्ता न हो तो वकालतनामा की पंक्ति हटा दें।"
+  rules: [ejagriti_documents, offline_copies]
+  slots:
+    vakalatnama_row:
+      when: "Only when the user chose to file through an advocate (routes.filing_mode = advocate)."
+      options:
+        present:
+          en: "6. Vakalatnama"
+          hi: "6. वकालतनामा (Vakalatnama)"
+  body:
+    en: |
+      BEFORE THE DISTRICT CONSUMER DISPUTES REDRESSAL COMMISSION, {district}, {state}
+
+      Consumer Complaint No. ______ of ______
+      {user_name} ... Complainant   VERSUS   {op1_name} and others ... Opposite Parties
+
+      INDEX
+
+      S.No.  Particulars                              Page
+      1.     Index                                    1
+      2.     Complaint (Proforma)                     {pg_complaint}
+      3.     Synopsis and List of Dates               {pg_synopsis}
+      4.     Memo of Parties                          {pg_memo}
+      5.     Affidavit (notarised)                    {pg_affidavit}
+      {vakalatnama_row}
+      7.     Annexures                                see below
+      {annexure_index_lines}
+
+      Place: {place}
+      Date: {date}
+      Complainant: {user_name}
+    hi: |
+      ज़िला उपभोक्ता विवाद निवारण आयोग (District Consumer Disputes Redressal Commission), {district}, {state} के समक्ष
+
+      उपभोक्ता शिकायत संख्या ______ वर्ष ______
+      {user_name} ... शिकायतकर्ता (Complainant)   बनाम   {op1_name} एवं अन्य ... विपक्षी पक्ष (Opposite Parties)
+
+      अनुक्रमणिका (Index)
+
+      क्र.सं.  विवरण                                    पृष्ठ
+      1.      अनुक्रमणिका                               1
+      2.      शिकायत (Proforma)                         {pg_complaint}
+      3.      सार और तारीखों की सूची                    {pg_synopsis}
+      4.      पक्षकारों का ज्ञापन                        {pg_memo}
+      5.      शपथ-पत्र (Affidavit), नोटरी से सत्यापित               {pg_affidavit}
+      {vakalatnama_row}
+      7.      अनुलग्नक (Annexures)                      नीचे देखें
+      {annexure_index_lines}
+
+      स्थान: {place}
+      दिनांक: {date}
+      शिकायतकर्ता: {user_name}
+
+# ---------------------------------------------------------------------------
+- id: synopsis_list_of_dates
+  order: 7
+  title: {en: "Synopsis and list of dates", hi: "सार और तारीखों की सूची"}
+  note:
+    en: "Short summary plus a dated table. Keep the dates identical to the complaint."
+    hi: "संक्षिप्त सार और तारीखों की तालिका। तारीखें शिकायत से मेल खानी चाहिए।"
+  rules: [ejagriti_documents, limitation_counted_from_purchase]
+  body:
+    en: |
+      BEFORE THE DISTRICT CONSUMER DISPUTES REDRESSAL COMMISSION, {district}, {state}
+
+      Consumer Complaint No. ______ of ______
+
+      SYNOPSIS
+      1. The Complainant bought a {brand} {product}, model {model}, serial {serial}, on {purchase_date} for Rs {price_inr}.
+      2. The product developed this fault on {fault_first_seen}: {defect_statement}.
+      3. The Complainant approached the Opposite Parties: {timeline_of_complaints}. Result: {outcome_so_far}.
+      4. The Complainant therefore seeks: {relief_summary}.
+
+      LIST OF DATES
+      Date                 Event
+      {purchase_date}      Purchase of the product (Annexure A-1)
+      {fault_first_seen}   Fault first appeared
+      {dated_events}
+      {filing_date}        Complaint filed
+
+      Place: {place}
+      Complainant: {user_name}
+    hi: |
+      ज़िला उपभोक्ता विवाद निवारण आयोग (District Consumer Disputes Redressal Commission), {district}, {state} के समक्ष
+
+      उपभोक्ता शिकायत संख्या ______ वर्ष ______
+
+      सार (Synopsis)
+      1. शिकायतकर्ता (Complainant) ने {brand} कंपनी का {product}, मॉडल {model}, सीरियल {serial}, {purchase_date} को {price_inr} रुपये में खरीदा।
+      2. {fault_first_seen} को उत्पाद में यह खराबी आई: {defect_statement}।
+      3. शिकायतकर्ता ने विपक्षी पक्षों (Opposite Parties) से संपर्क किया: {timeline_of_complaints}। परिणाम: {outcome_so_far}।
+      4. इसलिए शिकायतकर्ता की माँग है: {relief_summary}।
+
+      तारीखों की सूची (List of Dates)
+      तारीख                घटना
+      {purchase_date}      उत्पाद की खरीद (अनुलग्नक A-1)
+      {fault_first_seen}   खराबी पहली बार आई
+      {dated_events}
+      {filing_date}        शिकायत दाखिल की गई
+
+      स्थान: {place}
+      शिकायतकर्ता: {user_name}
+
+# ---------------------------------------------------------------------------
+- id: memo_of_parties
+  order: 8
+  title: {en: "Memo of parties", hi: "पक्षकारों का ज्ञापन (Memo of Parties)"}
+  note:
+    en: "Names and addresses of all parties, with phone and email so the Commission can serve notice."
+    hi: "सभी पक्षकारों के नाम और पते, फ़ोन और ईमेल सहित, ताकि आयोग नोटिस भेज सके।"
+  rules: [ejagriti_documents, who_can_file]
+  body:
+    en: |
+      BEFORE THE DISTRICT CONSUMER DISPUTES REDRESSAL COMMISSION, {district}, {state}
+
+      Consumer Complaint No. ______ of ______
+
+      MEMO OF PARTIES
+
+      {user_name}, aged {user_age}, {user_relation_line}
+      Resident of {user_address}
+      Phone {user_phone}, email {user_email}
+      ... Complainant
+
+      VERSUS
+
+      1. {op1_name}
+         {op1_address}
+         (manufacturer)
+      2. {op2_name}
+         {op2_address}
+         (seller)
+      3. {op3_name}
+         {op3_address}
+         (authorised service centre, if any)
+      ... Opposite Parties
+
+      Place: {place}
+      Date: {date}
+      Complainant: {user_name}
+    hi: |
+      ज़िला उपभोक्ता विवाद निवारण आयोग (District Consumer Disputes Redressal Commission), {district}, {state} के समक्ष
+
+      उपभोक्ता शिकायत संख्या ______ वर्ष ______
+
+      पक्षकारों का ज्ञापन (Memo of Parties)
+
+      {user_name}, आयु {user_age}, {user_relation_line}
+      निवासी {user_address}
+      फ़ोन {user_phone}, ईमेल {user_email}
+      ... शिकायतकर्ता (Complainant)
+
+      बनाम
+
+      1. {op1_name}
+         {op1_address}
+         (निर्माता)
+      2. {op2_name}
+         {op2_address}
+         (विक्रेता)
+      3. {op3_name}
+         {op3_address}
+         (अधिकृत सर्विस सेंटर, यदि हो)
+      ... विपक्षी पक्ष (Opposite Parties)
+
+      स्थान: {place}
+      दिनांक: {date}
+      शिकायतकर्ता: {user_name}
+
+# ---------------------------------------------------------------------------
+- id: affidavit
+  order: 9
+  title: {en: "Affidavit in support of the complaint (to be notarised)", hi: "शिकायत के समर्थन में शपथ-पत्र (Affidavit), नोटरी से सत्यापित कराने के लिए"}
+  note:
+    en: "Treated as required: the e-Jagriti manual lists a Notarized Affidavit. Print it, sign it before a notary, and scan it. The notary completes the last block. Whether stamp paper is needed, and the notary's fee, vary by place; one first-hand post reports Rs 200. Not verified."
+    hi: "अनिवार्य माना गया है: e-Jagriti की मैनुअल में नोटरी से सत्यापित शपथ-पत्र (Notarized Affidavit) अपलोड की सूची में है। इसे प्रिंट करें, नोटरी के सामने हस्ताक्षर करें और स्कैन करें। अंतिम खंड नोटरी भरते हैं। स्टाम्प पेपर चाहिए या नहीं और नोटरी की फ़ीस जगह के अनुसार बदलती है; एक उपभोक्ता की पोस्ट में 200 रुपये बताए गए हैं। असत्यापित।"
+  rules: [ejagriti_documents, ejagriti_affidavit_notarised]
+  body:
+    en: |
+      BEFORE THE DISTRICT CONSUMER DISPUTES REDRESSAL COMMISSION, {district}, {state}
+
+      Consumer Complaint No. ______ of ______
+      {user_name} ... Complainant   VERSUS   {op1_name} and others ... Opposite Parties
+
+      AFFIDAVIT
+
+      I, {user_name}, aged {user_age}, {user_relation_line}, resident of {user_address}, do solemnly affirm and state as follows:
+
+      1. I am the Complainant in the above complaint and am competent to swear this affidavit.
+      2. I have read the accompanying complaint. The contents of paragraphs {fact_paras} are true and correct to my knowledge, and the rest are true and correct to my belief. Nothing material has been concealed.
+      3. The annexures filed with the complaint are true copies of the documents in my possession.
+
+      DEPONENT
+
+      VERIFICATION
+      Verified at {place} on {date} that the contents of this affidavit are true and correct to my knowledge and belief, that nothing in it is false, and that nothing material has been concealed.
+
+      DEPONENT
+
+      (To be completed by the Notary: sworn or affirmed before me on ______ at ______. Notary's name, registration number, seal and signature.)
+    hi: |
+      ज़िला उपभोक्ता विवाद निवारण आयोग (District Consumer Disputes Redressal Commission), {district}, {state} के समक्ष
+
+      उपभोक्ता शिकायत संख्या ______ वर्ष ______
+      {user_name} ... शिकायतकर्ता (Complainant)   बनाम   {op1_name} एवं अन्य ... विपक्षी पक्ष (Opposite Parties)
+
+      शपथ-पत्र (Affidavit)
+
+      शपथकर्ता (Deponent) {user_name}, आयु {user_age}, {user_relation_line}, निवासी {user_address}, का शपथपूर्वक कथन:
+
+      1. शपथकर्ता उपर्युक्त शिकायत में शिकायतकर्ता है और यह शपथ-पत्र देने में सक्षम है।
+      2. संलग्न शिकायत पढ़ी जा चुकी है। पैराग्राफ़ {fact_paras} की बातें शपथकर्ता की जानकारी में सही हैं, और शेष बातें शपथकर्ता के विश्वास में सही हैं। कोई महत्वपूर्ण बात छिपाई नहीं गई है।
+      3. शिकायत के साथ दाखिल अनुलग्नक शपथकर्ता के पास मौजूद मूल कागज़ों की सही प्रतियाँ हैं।
+
+      शपथकर्ता
+
+      सत्यापन (Verification)
+      {place} में {date} को सत्यापित किया जाता है कि इस शपथ-पत्र की बातें शपथकर्ता की जानकारी और विश्वास में सही हैं, इसमें कुछ भी झूठा नहीं है और कोई महत्वपूर्ण बात छिपाई नहीं गई है।
+
+      शपथकर्ता
+
+      (नोटरी द्वारा भरा जाए: मेरे समक्ष ______ को ______ में शपथ ली गई या दृढ़ कथन किया गया। नोटरी का नाम, पंजीकरण संख्या, मुहर और हस्ताक्षर।)

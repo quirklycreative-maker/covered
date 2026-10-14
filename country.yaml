@@ -1,0 +1,396 @@
+# Covered: India country pack, data file.
+# Version 0.3.0 (draft). Rebuilt on 10 Oct 2026 after the Section A to E review answers; limitation changed to count from purchase.
+# Every rule cites at least one source. Run: python packs/validate_country.py
+# This is information, not legal advice.
+
+pack:
+  id: country-in
+  version: 0.3.0
+  status: draft
+  market: in
+  languages: [en, hi]          # MVP scope: English and Hindi only
+  last_checked: 2026-10-10
+  hindi_review: pending         # new Hindi strings still need a native reader (validator warns while pending)
+
+# kind: primary = government or statutory body, or the brand's own document
+#       secondary = bare-act mirror, news report or commentary
+#       first_hand = a person's account or a screenshot captured by the team
+sources:
+  - {id: cpa_indiacode, kind: primary, title: "Consumer Protection Act, 2019 - India Code record (text not opened by the team's tools)", url: "https://www.indiacode.nic.in/handle/123456789/15256", checked: 2026-10-05}
+  - {id: cpa_prs, kind: secondary, title: "Consumer Protection Act, 2019 - PRS India reproduction (text ends before s.84 in the read)", url: "https://PRSINDIA.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf", checked: 2026-10-09}
+  - {id: akhoj_s2, kind: secondary, title: "CPA 2019 s.2 Definitions (AdvocateKhoj)", url: "https://www.advocatekhoj.com/library/bareacts/consumerprotection2019/2.php?Title=Consumer+Protection+Act%2C+2019&STitle=Definitions", checked: 2026-10-05}
+  - {id: cp_in_s2, kind: secondary, title: "CPA 2019 s.2 Definitions (consumerprotection.in), clause cross-check", url: "https://www.consumerprotection.in/section-2-definitions/", checked: 2026-10-05}
+  - {id: akhoj_s17, kind: secondary, title: "CPA 2019 s.17 Complaints to authorities (AdvocateKhoj)", url: "https://www.advocatekhoj.com/library/bareacts/consumerprotection2019/17.php?Title=Consumer+Protection+Act%2C+2019&STitle=Complaints+to+authorities", checked: 2026-10-05}
+  - {id: akhoj_s34, kind: secondary, title: "CPA 2019 s.34 Jurisdiction of District Commission (AdvocateKhoj)", url: "https://www.advocatekhoj.com/library/bareacts/consumerprotection2019/34.php?Title=Consumer+Protection+Act%2C+2019&STitle=Jurisdiction+of+District+Commission", checked: 2026-10-05}
+  - {id: akhoj_s35, kind: secondary, title: "CPA 2019 s.35 Manner in which complaint shall be made (AdvocateKhoj)", url: "https://www.advocatekhoj.com/library/bareacts/consumerprotection2019/35.php?Title=Consumer+Protection+Act%2C+2019&STitle=Manner+in+which+complaint+shall+be+made", checked: 2026-10-09}
+  - {id: akhoj_s37, kind: secondary, title: "CPA 2019 s.37 Reference to mediation (AdvocateKhoj)", url: "https://www.advocatekhoj.com/library/bareacts/consumerprotection2019/37.php?Title=Consumer+Protection+Act%2C+2019&STitle=Reference+to+mediation", checked: 2026-10-05}
+  - {id: akhoj_s38, kind: secondary, title: "CPA 2019 s.38 Procedure on admission of complaint (AdvocateKhoj)", url: "https://www.advocatekhoj.com/library/bareacts/consumerprotection2019/38.php?Title=Consumer+Protection+Act%2C+2019&STitle=Procedure+on+admission+of+complaint", checked: 2026-10-05}
+  - {id: akhoj_s39, kind: secondary, title: "CPA 2019 s.39 Findings of District Commission (AdvocateKhoj), clauses (a) to (n) read 10 Oct 2026", url: "https://www.advocatekhoj.com/library/bareacts/consumerprotection2019/39.php?Title=Consumer+Protection+Act%2C+2019&STitle=Findings+of+District+Commission", checked: 2026-10-10}
+  - {id: akhoj_s41, kind: secondary, title: "CPA 2019 s.41 Appeal against order of District Commission (AdvocateKhoj)", url: "https://www.advocatekhoj.com/library/bareacts/consumerprotection2019/41.php?Title=Consumer+Protection+Act%2C+2019&STitle=Appeal+against+order+of+District+Commission", checked: 2026-10-05}
+  - {id: akhoj_s84, kind: secondary, title: "CPA 2019 s.84 Liability of product manufacturer (AdvocateKhoj)", url: "https://www.advocatekhoj.com/library/bareacts/consumerprotection2019/84.php?Title=Consumer+Protection+Act%2C+2019&STitle=Liability+of+product+manufacturer", checked: 2026-10-09}
+  - {id: akhoj_s86, kind: secondary, title: "CPA 2019 s.86 Liability of product sellers (AdvocateKhoj)", url: "https://www.advocatekhoj.com/library/bareacts/consumerprotection2019/86.php?Title=Consumer+Protection+Act%2C+2019&STitle=Liability+of+product+sellers", checked: 2026-10-05}
+  - {id: cp_in_s69, kind: secondary, title: "CPA 2019 s.69 Limitation period (consumerprotection.in)", url: "https://www.consumerprotection.in/section-69-limitation-period/", checked: 2026-10-05}
+  - {id: gsr_912e_2021, kind: primary, title: "Consumer Protection (Jurisdiction of the District Commission, the State Commission and the National Commission) Rules, 2021, G.S.R. 912(E), 30 Dec 2021 (copy on thc.nic.in)", url: "https://www.thc.nic.in/Central%20Governmental%20Rules/Consumer%20Protection%20(Jurisdiction%20of%20the%20District%20Commission,%20the%20State%20Commission%20and%20the%20National%20Commission)%20Rules,%202021.pdf", checked: 2026-10-09}
+  - {id: gsr_606e_2023, kind: primary, title: "Consumer Protection (Consumer Disputes Redressal Commissions) Amendment Rules, 2023, G.S.R. 606(E), 17 Aug 2023 (rule 7(2) fee table, all 11 rows read)", url: "https://egazette.gov.in/WriteReadData/2023/248158.pdf", checked: 2026-10-10}
+  - {id: procedure_regs, kind: secondary, title: "Consumer Commission Procedure Regulations, 2020 (Taxguru; reg. 7 copies, silent on language and affidavit)", url: "https://taxguru.in/corporate-law/consumer-protection-consumer-commission-procedure-regulations-2020.html", checked: 2026-10-09}
+  - {id: ecom_rules_text, kind: secondary, title: "Consumer Protection (E-Commerce) Rules, 2020, notification text copy (taxheal): rules 4(4), 4(5), 4(10), 5(3)(c), 6(3), 6(5)(g), 7(1)(a), 7(4)", url: "https://www.taxheal.com/?p=87116", checked: 2026-10-09}
+  - {id: ecom_rule6, kind: secondary, title: "E-Commerce Rules rule 6 text (consumerprotection.in)", url: "https://www.consumerprotection.in/rule-6-duties-of-sellers-on-marketplace/", checked: 2026-10-09}
+  - {id: ecom_rule4, kind: secondary, title: "E-Commerce Rules rule 4 text (consumerprotection.in): rule 4(1) has only clauses (a) and (b)", url: "https://www.consumerprotection.in/rule-4-duties-of-e-commerce-entities/", checked: 2026-10-10}
+  - {id: soga_s16, kind: secondary, title: "Sale of Goods Act, 1930 s.16 (Indian Kanoon)", url: "https://future.indiankanoon.org/doc/346827", checked: 2026-10-09}
+  - {id: nch_contact, kind: primary, title: "National Consumer Helpline - Contact", url: "https://consumerhelpline.gov.in/public/contact", checked: 2026-10-09}
+  - {id: nch_about, kind: primary, title: "National Consumer Helpline - About", url: "https://consumerhelpline.gov.in/public/about", checked: 2026-10-05}
+  - {id: nch_convergence, kind: primary, title: "National Consumer Helpline - Convergence programme", url: "https://consumerhelpline.gov.in/public/convergenceprogram", checked: 2026-10-05}
+  - {id: nch_signup, kind: primary, title: "National Consumer Helpline - Sign-up page (7 mandatory account fields)", url: "https://consumerhelpline.gov.in/user/signup.php", checked: 2026-10-09}
+  - {id: nch_form_screens, kind: first_hand, title: "NCH Grievance Registration Form, screenshots captured by the team after login, October 2026 (consumerhelpline.gov.in/user/register-complaint.php)", url: "https://consumerhelpline.gov.in/user/register-complaint.php", checked: 2026-10-10}
+  - {id: pib_nch_2025, kind: primary, title: "PIB: National Consumer Helpline volumes and disposal time", url: "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2100545", checked: 2026-10-09}
+  - {id: ejagriti_manual, kind: primary, title: "e-Jagriti help manual for consumer complaint filing", url: "https://e-jagriti.gov.in/static/media/CC_Filing.34e0fc5dd03b1d864cab.pdf", checked: 2026-10-09}
+  - {id: pib_ejagriti, kind: primary, title: "PIB: e-Jagriti revolutionizes consumer justice (16 Nov 2025)", url: "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2190535&reg=48&lang=2", checked: 2026-10-05}
+  - {id: techenclave_filing, kind: first_hand, title: "A self-filed e-Jagriti case (forum post): notarised affidavit, hard copies, annexure labels", url: "https://techenclave.com/t/i-filed-a-consumer-court-case-against-flipkart-by-myself-through-e-jagriti/440667", checked: 2026-10-09}
+  - {id: ncdrc_proforma, kind: primary, title: "NCDRC complaint proforma (model only)", url: "https://ncdrc.nic.in/images/cc.htm", checked: 2026-10-05}
+  - {id: pib_ccpa_2024, kind: primary, title: "PIB, 22 Jun 2024: CCPA meeting on warranty start date (purchase vs installation)", url: "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2027925", checked: 2026-10-09}
+  - {id: rtr_portal_home, kind: primary, title: "Right to Repair portal home page: search by company name or consumer product name; sectors named: farming equipment, mobile phones and tablets, consumer durables, automobiles", url: "https://righttorepairindia.gov.in", checked: 2026-10-10}
+  - {id: rtr_portal, kind: secondary, title: "Right to Repair portal launch and contents (Business Standard)", url: "https://www.business-standard.com/technology/tech-news/right-to-repair-how-to-access-it-what-it-covers-and-consumer-benefits-123052200523_1.html", checked: 2026-10-05}
+  - {id: godrej_scheme, kind: primary, title: "Godrej AC extended PCB warranty scheme, Gujarat, May-June 2021 (one brand, one scheme)", url: "https://godrejenterprises.com/Resources/Support/ACExtendedPCBwarrantyJune21Gujarat_21045647.pdf", checked: 2026-10-09}
+  - {id: amex_in_pp, kind: secondary, title: "American Express India: extended warranty and purchase protection explained (vendor page)", url: "https://www.americanexpress.com/in/articles/life-with-amex/benefits/purchase-protection.html", checked: 2026-10-08}
+  - {id: icici_card_benefits, kind: secondary, title: "ICICI Bank blog: card benefits include extended warranty (vendor page)", url: "https://www.icici.bank.in/personal-banking/blogs/card/credit-card/hidden-benefits-of-having-credit-card", checked: 2026-10-08}
+  - {id: knox_care_claim, kind: primary, title: "Samsung Knox Care+ India claim steps (one plan: IMEI, alternate contact, issue, claim ID)", url: "https://docs.samsungknox.com/admin/care-plus/submit-a-claim/india/", checked: 2026-10-09}
+  - {id: eu_directive, kind: primary, title: "EU Directive 2019/771 Art. 10-11 (comparison only)", url: "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32019L0771", checked: 2026-10-05}
+  - {id: livelaw_evidence, kind: secondary, title: "News reports of NCDRC and District Commission orders on proof of defect (judgment text not read)", url: "https://www.livelaw.in/consumer-cases/ncdrc-burden-of-proof-manufacturing-defect-complainant-260956", checked: 2026-10-08}
+  - {id: pib_112, kind: primary, title: "112 FAQ", url: "https://112.gov.in/faq", checked: 2026-10-05}
+  - {id: iocl_1906, kind: primary, title: "IndianOil help: LPG emergency 1906", url: "https://iocl.com/help", checked: 2026-10-05}
+  - {id: trai_dth, kind: primary, title: "TRAI broadcasting grievance redressal contacts", url: "https://www.trai.gov.in/consumer-info/broadcasting/grievance-redressal-mechanisms", checked: 2026-10-05}
+  - {id: product_decision, kind: first_hand, title: "Team decision recorded in the Country Pack India review answers, 10 Oct 2026 (product rule, not law)", url: "https://github.com/", checked: 2026-10-10}
+
+# verification: primary_checked | secondary_only | unverified | product_decision
+rules:
+  - id: defect_definition
+    summary: "Defect: any fault, imperfection or shortcoming in quality, quantity, potency, purity or standard required by law, by contract (express or implied) or as claimed by the trader. CPA 2019 s.2(10). A breakdown alone does not prove a statutory defect."
+    sources: [akhoj_s2, cp_in_s2, cpa_prs, cpa_indiacode]
+    verification: secondary_only
+  - id: deficiency_is_for_services
+    summary: "Deficiency applies to services, for example a service centre's repair work. CPA 2019 s.2(11). Keep it conditional; do not apply it to every faulty product."
+    sources: [akhoj_s2, cpa_prs]
+    verification: secondary_only
+  - id: consumer_rights
+    summary: "Consumer rights, including the right to be heard and to seek redressal against unfair trade practices. CPA 2019 s.2(9)."
+    sources: [cp_in_s2, cpa_prs]
+    verification: secondary_only
+  - id: consumer_definition
+    summary: "A consumer buys goods for consideration, offline or online, not for resale or a commercial purpose. CPA 2019 s.2(7)."
+    sources: [akhoj_s2]
+    verification: secondary_only
+  - id: utp_no_bill
+    summary: "Not issuing a bill, cash memo or receipt is an unfair trade practice. CPA 2019 s.2(47)(vii)."
+    sources: [akhoj_s2, cp_in_s2, cpa_prs]
+    verification: secondary_only
+  - id: utp_refuse_defective_return
+    summary: "Refusing to take back defective goods and refund the price within the period stated on the bill, or otherwise thirty days, is an unfair trade practice. CPA 2019 s.2(47)(viii). The text does not say when the thirty days start. It is not a general return right or warranty period. No template may state a start date."
+    sources: [akhoj_s2, cp_in_s2, cpa_prs]
+    verification: secondary_only
+  - id: limitation_two_years
+    summary: "A complaint must be filed within two years from the date the cause of action arose. A Commission may admit a late complaint for sufficient cause, with reasons recorded. CPA 2019 s.69."
+    sources: [cp_in_s69, cpa_prs]
+    verification: secondary_only
+  - id: limitation_counted_from_purchase
+    summary: "Product rule: the app counts the two years from the date of purchase. s.69 counts from the date the cause of action arose, which for a fault that appears later can be later than the purchase date. Counting from purchase is the cautious reading: it never tells a user they have more time than the Act allows, but it can tell a user with a late-arising cause of action that time has run out when a Commission might still hear them. The limitation_passed message says so. A lawyer should confirm before release."
+    sources: [product_decision, cp_in_s69]
+    verification: product_decision
+  - id: district_pecuniary_limit
+    summary: "District Commission: value of goods or services paid as consideration up to Rs 50 lakh (rule 3). State Commission: above Rs 50 lakh up to Rs 2 crore (rule 4). National Commission: above Rs 2 crore (rule 5). G.S.R. 912(E), 30 Dec 2021."
+    sources: [gsr_912e_2021]
+    verification: primary_checked
+  - id: act_s34_1_text_differs
+    summary: "The Act's own s.34(1) still reads Rs 1 crore for the District Commission. The 2021 Rules prescribe Rs 50 lakh. Use the Rules."
+    sources: [cpa_prs, gsr_912e_2021]
+    verification: secondary_only
+  - id: territorial_complainant_residence
+    summary: "A complaint may be filed where the opposite party lives or carries on business, where the cause of action arose wholly or in part, or where the complainant lives or works for gain. CPA 2019 s.34(2)."
+    sources: [akhoj_s34, cpa_prs]
+    verification: secondary_only
+  - id: who_can_file
+    summary: "The consumer, a recognised consumer association, or other persons named in s.35 may file. Filing may be electronic. CPA 2019 s.35. The text read does not mention a prior notice, an affidavit or a language."
+    sources: [akhoj_s35, cpa_prs]
+    verification: secondary_only
+  - id: fee_table_rule7
+    summary: "Fee by value of goods or services paid as consideration: up to Rs 5 lakh Nil; above 5 and up to 10 lakh Rs 200; above 10 and up to 20 lakh Rs 400; above 20 and up to 50 lakh Rs 1,000; above 50 lakh and up to 1 crore Rs 2,000; above 1 and up to 2 crore Rs 2,500; and higher slabs for the National Commission. Rule 7(2) as substituted by G.S.R. 606(E), 17 Aug 2023. The table has no commission column; commission follows the value limits in district_pecuniary_limit."
+    sources: [gsr_606e_2023]
+    verification: primary_checked
+  - id: decision_time_target
+    summary: "Target: decide within three months of the opposite party receiving notice, five months if testing is needed. CPA 2019 s.38(7)."
+    sources: [akhoj_s38, cpa_prs]
+    verification: secondary_only
+  - id: reliefs_available
+    summary: "Reliefs, CPA 2019 s.39(1): (a) remove a defect pointed out by the appropriate laboratory; (b) replace with defect-free goods; (c) return the price with interest; (d) compensation for loss or injury due to negligence (punitive damages are a proviso to (d)); (e) compensation in a product liability action; (f) remove defects in goods or deficiencies in services; (g) stop the unfair trade practice and not repeat it; (m) adequate costs. Defect removal in a template cites (f), not (a). A second-model review on 9 Oct 2026 mapped (a) to defect removal and (f) to a welfare fund; two readings of the text disagree with it."
+    sources: [akhoj_s39, cpa_prs]
+    verification: secondary_only
+  - id: appeal_45_days
+    summary: "Appeal to the State Commission within 45 days; a party ordered to pay deposits 50% of the amount. CPA 2019 s.41."
+    sources: [akhoj_s41, cpa_prs]
+    verification: secondary_only
+  - id: mediation_possible
+    summary: "Mediation with both sides' written consent. CPA 2019 s.37."
+    sources: [akhoj_s37]
+    verification: secondary_only
+  - id: product_liability_s84
+    summary: "Product liability covers harm caused by a defective product. A manufacturer is liable on five grounds; under s.84(2) even if not negligent or fraudulent in making the express warranty. Do not use as a generic defect remedy."
+    sources: [akhoj_s84]
+    verification: secondary_only
+  - id: seller_liability_s86
+    summary: "A product seller is liable only on the grounds in s.86."
+    sources: [akhoj_s86]
+    verification: secondary_only
+  - id: class_complaints
+    summary: "A practice harming consumers as a class can be reported to the District Collector, the regional Commissioner or the Central Authority. CPA 2019 s.17."
+    sources: [akhoj_s17]
+    verification: secondary_only
+  - id: no_minimum_warranty
+    summary: "Negative finding: no provision found that sets a minimum warranty period for goods, unlike the EU two-year legal guarantee. The warranty is whatever the brand's warranty card, brand site or Right to Repair entry says; that is why the app asks for it (cases in12, in14). The Sale of Goods Act s.16(2) implies merchantable quality with no duration. Not proven for sector-specific rules on the five product categories."
+    sources: [soga_s16, akhoj_s2, pib_ccpa_2024]
+    verification: unverified
+  - id: no_presumption_of_defect_at_delivery
+    summary: "Negative finding, burden of proof: no provision found that presumes a defect already existed when the goods were delivered. The EU has one (Directive 2019/771 Art. 11: a defect in the first months is presumed to have existed at delivery). In India the consumer has to show the defect, so a breakdown alone is not enough. This is why an out-of-warranty product with no refusal and no repeat repair goes to out_of_pocket (cases in02, in18) and why the out_of_pocket message asks for a written service-centre report. Not proven by an exhaustive search of the Act and sector rules."
+    sources: [eu_directive, akhoj_s2]
+    verification: unverified
+  - id: no_fixed_ecommerce_return_window
+    summary: "The E-Commerce Rules set no number of days for returns. They require disclosure of return, refund, exchange and warranty terms (rules 5(3)(c), 6(5)(g), 7(1)(a)), a refund within a reasonable period (rule 4(10)) and bar refusing defective or misdescribed goods (rules 6(3), 7(4)). Rule numbers read 9-10 Oct 2026; a second-model review cited rules 4(1)(e) and 4(1)(h), which do not exist in the text read (rule 4(1) has only (a) and (b))."
+    sources: [ecom_rules_text, ecom_rule6, ecom_rule4]
+    verification: secondary_only
+  - id: ecom_grievance_48h_1month
+    summary: "An e-commerce entity's grievance officer acknowledges a complaint within 48 hours and redresses it within one month. E-Commerce Rules rule 4(5)."
+    sources: [ecom_rules_text, ecom_rule4]
+    verification: secondary_only
+  - id: ecom_seller_cannot_refuse_defective
+    summary: "A marketplace seller may not refuse to take back or refund defective, deficient or spurious goods. E-Commerce Rules rule 6(3); inventory entities rule 7(4)."
+    sources: [ecom_rules_text, ecom_rule6]
+    verification: secondary_only
+  - id: no_notice_required_before_filing
+    summary: "Negative finding: no provision found that requires a consumer to send a notice before filing. Covered still makes the notice a required step in its own flow (rule notice_step_in_flow); it never tells the user the law requires it. Regulation 10 of the Procedure Regulations concerns notice issued by the Commission after filing. Not proven by a full-text search."
+    sources: [akhoj_s35, procedure_regs]
+    verification: unverified
+  - id: notice_step_in_flow
+    summary: "Product rule: Covered always asks the user to send the notice before it prepares the complaint, and to wait out the reply period they chose. It is dated evidence that the other side had a chance to act. It is a Covered step, not a legal duty, and it does not stop the two-year limit counted from purchase, so the app tells the user to send it early."
+    sources: [product_decision, techenclave_filing]
+    verification: product_decision
+  - id: nch_is_prelitigation
+    summary: "The National Consumer Helpline is a free pre-litigation route. It forwards the grievance to the company and may take up to 30 days. More than 2,000 companies take part in the Convergence programme."
+    sources: [nch_about, nch_convergence]
+    verification: primary_checked
+  - id: nch_contacts
+    summary: "1915 or 1800-11-4000, 8 AM to 8 PM daily except national holidays; WhatsApp and SMS 8800001915; nch-ca@gov.in; web portal, NCH app, UMANG app."
+    sources: [nch_contact]
+    verification: primary_checked
+  - id: nch_form_fields
+    summary: "The grievance form asks: Grievance Type*, Grievance Classification*, Company*, Sector/Industry*, Category*, Nature of Grievance*, Product Value*, Dealer name/address/email/contact (optional, 'for improving the chance of redressal'), Grievance Details*, Purchase District/State*, Expectation*, 'Have you registered your grievance with the company?'*, Documents 1 to 3 (JPG, JPEG, PNG, DOC or PDF, maximum 5 MB each, no double extensions) and a declaration of truth. Drafts auto-save. The dropdown options were not captured."
+    sources: [nch_form_screens, nch_signup]
+    verification: secondary_only
+  - id: nch_session_timeout
+    summary: "The logged-in portal shows a session timer of about 15 minutes. The app prepares all text before the user logs in."
+    sources: [nch_form_screens]
+    verification: secondary_only
+  - id: brand_first
+    summary: "Product rule: the user always contacts the brand or seller first. The NCH form itself asks whether the grievance was registered with the company."
+    sources: [product_decision, nch_form_screens]
+    verification: product_decision
+  - id: ejagriti_is_the_portal
+    summary: "e-Jagriti (e-jagriti.gov.in) is the online system for filing and tracking consumer cases; live 1 Jan 2025; replaced e-Daakhil."
+    sources: [pib_ejagriti]
+    verification: primary_checked
+  - id: ejagriti_documents
+    summary: "The upload step lists: Index, Proforma, Synopsis, Memo of Parties, Notarized Affidavit, Vakalatnama; then Annexures with a title, or an IA application. File types and size limits are not stated in the manual."
+    sources: [ejagriti_manual, ncdrc_proforma]
+    verification: primary_checked
+  - id: ejagriti_affidavit_notarised
+    summary: "Treat a notarised affidavit as required. The manual lists it as an upload; one first-hand post says it cost Rs 200 and was redone after the wrong commission was selected. The Act text and Procedure Regulations summary read do not mention it."
+    sources: [ejagriti_manual, techenclave_filing]
+    verification: primary_checked
+  - id: offline_copies
+    summary: "Offline filing at a District Commission: three sets plus one per opposite party (Procedure Regulations reg. 7(1)). A first-hand post says printed copies were still needed with numbered pages and annexures labelled A-1, A-2."
+    sources: [procedure_regs, techenclave_filing]
+    verification: secondary_only
+  - id: filing_mode_choice
+    summary: "Product rule: the app asks whether the user will file alone or through an advocate and guides both paths. Self: Covered prepares Index, complaint, Synopsis, Memo of Parties and Affidavit; the user adds annexures. Advocate: the user hands the pack to the advocate, who supplies the Vakalatnama and files."
+    sources: [product_decision, ejagriti_manual, akhoj_s35]
+    verification: product_decision
+  - id: vakalatnama_only_with_advocate
+    summary: "Unverified: a Vakalatnama is needed only when an advocate represents the complainant; a consumer may file in person (s.35). The advocate supplies it, so no template is provided. The app asks the user how they will file (rule filing_mode_choice)."
+    sources: [ejagriti_manual]
+    verification: unverified
+  - id: language_scope_mvp
+    summary: "Product rule: the MVP supports English and Hindi. Formal filings default to English with a Hindi copy. Whether a District Commission accepts a Hindi complaint is state-specific and unverified. Other languages are later."
+    sources: [product_decision, procedure_regs]
+    verification: product_decision
+  - id: warranty_start_not_fixed_by_law
+    summary: "The CCPA asked brands in June 2024 to disclose before sale whether the warranty starts at purchase or installation. It did not make installation the rule. The start point stays brand-specific."
+    sources: [pib_ccpa_2024]
+    verification: primary_checked
+  - id: warranty_source_order
+    summary: "Product rule: (1) the user's warranty card or invoice; (2) if none, the app helps the user find the terms on the brand site or the Right to Repair portal; (3) only if the user cannot find them, the product pack's typical value, marked assumed, with a visible notice. The user's own card always overrides the pack."
+    sources: [product_decision, rtr_portal, godrej_scheme]
+    verification: product_decision
+  - id: card_benefit_counts
+    summary: "Product rule: a credit-card or bank extended warranty counts as a protection plan only if the user confirms the product was bought on that card and the benefit is active. Purchase protection (theft and accidental damage, short window) does not extend a warranty. No Indian statistics on card extended warranties were found."
+    sources: [product_decision, amex_in_pp, icici_card_benefits, knox_care_claim]
+    verification: product_decision
+  - id: forum_by_value
+    summary: "The app selects the forum from the price paid: up to Rs 50 lakh District; above Rs 50 lakh up to Rs 2 crore State; above Rs 2 crore National."
+    sources: [gsr_912e_2021]
+    verification: primary_checked
+  - id: statutory_rights_meaning
+    summary: "statutory_rights means 'you may have a complaint, and here is the route'. The Consumer Commission decides, never Covered. It is not an entitlement."
+    sources: [product_decision, akhoj_s2]
+    verification: product_decision
+  - id: proof_of_defect_evidence
+    summary: "Case reports: the complainant must prove a manufacturing defect, and an NCDRC order required expert opinion for an inherent defect in a vehicle; repeated breakdowns and a record of failed repair attempts carried weight in other orders. Not law; shapes the evidence advice."
+    sources: [livelaw_evidence]
+    verification: secondary_only
+  - id: right_to_repair_portal
+    summary: "The portal home page (read 10 Oct 2026) says users can search by company name or consumer product name and that it gathers product, service, warranty and terms-and-conditions information and consumer-care contacts. It does not say a model-number lookup exists, nor which brands are loaded. A news report adds spare-part prices and authorised repairers. So the app looks up by brand and product type, then asks the user to confirm the model's terms."
+    sources: [rtr_portal_home, rtr_portal]
+    verification: primary_checked
+  - id: emergency_numbers
+    summary: "112 for police, fire and ambulance; 1906 for LPG leaks, 24x7."
+    sources: [pib_112, iocl_1906]
+    verification: primary_checked
+  - id: dth_route
+    summary: "DTH service: start with the operator's customer care, then its nodal officer; TRAI publishes these contacts."
+    sources: [trai_dth]
+    verification: primary_checked
+
+coverage:
+  order: [brand_warranty, protection_plan, statutory_rights, out_of_pocket]
+  outcomes:
+    brand_warranty: {letter: brand_seller_letter}
+    protection_plan: {letter: plan_provider_claim}
+    statutory_rights: {letter: brand_seller_letter, then: [nch_grievance, notice_before_complaint, district_commission_complaint]}
+    out_of_pocket: {letter: null}
+  limitation_months: 24
+  limitation_basis: purchase_date             # decision: two years from the date of purchase
+  defect_signals:
+    - brand_refused_repair_in_warranty
+    - same_fault_after_repair
+    - seller_refused_return_of_defective_goods
+  warranty_sources: [card, brand_site, rtr_portal, pack_hint, none]
+  warranty_start_values: [purchase, installation]
+  forum_thresholds_inr: {district_max: 5000000, state_max: 20000000}
+  fee_slabs_inr:                               # rule 7(2), G.S.R. 606(E): [upper bound inclusive, fee]
+    - {up_to: 500000, fee: 0}
+    - {up_to: 1000000, fee: 200}
+    - {up_to: 2000000, fee: 400}
+    - {up_to: 5000000, fee: 1000}
+    - {up_to: 10000000, fee: 2000}
+    - {up_to: 20000000, fee: 2500}
+    - {up_to: 40000000, fee: 3000}
+    - {up_to: 60000000, fee: 4000}
+    - {up_to: 80000000, fee: 5000}
+    - {up_to: 100000000, fee: 6000}
+    - {up_to: null, fee: 7500}
+  asks:
+    unit_warranty_months: {en: "What is the warranty period for this product, in months? Check the warranty card, the brand's website or the Right to Repair portal.", hi: "इस उत्पाद की वारंटी कितने महीने की है? वारंटी कार्ड, कंपनी की वेबसाइट या राइट टू रिपेयर पोर्टल देखें।"}
+    fault_first_seen_months_ago: {en: "When did the fault first appear? Give the date or how many months ago.", hi: "खराबी पहली बार कब आई? तारीख बताएँ या कितने महीने पहले।"}
+  messages:
+    brand_warranty:
+      en: "Your product is under warranty. Contact the brand's service centre first and keep the complaint number."
+      hi: "आपका उत्पाद वारंटी में है। पहले कंपनी के सर्विस सेंटर से संपर्क करें और शिकायत नंबर संभालकर रखें।"
+    protection_plan:
+      en: "Your extended warranty, AMC or insurance is active. Send the claim to the plan provider, not to the brand."
+      hi: "आपकी एक्सटेंडेड वारंटी, AMC या बीमा चालू है। दावा कंपनी को नहीं, प्लान देने वाली कंपनी को भेजें।"
+    statutory_rights:
+      en: "You may have a consumer complaint. Write to the brand and the seller first. If that fails, you can use the National Consumer Helpline and then the District Commission. The Commission decides; Covered does not. File within 2 years of the purchase date."
+      hi: "आप उपभोक्ता शिकायत कर सकते हैं। पहले कंपनी और विक्रेता को लिखें। बात न बने तो राष्ट्रीय उपभोक्ता हेल्पलाइन और फिर ज़िला आयोग में जा सकते हैं। फ़ैसला आयोग करता है, Covered नहीं। खरीद की तारीख से 2 साल के भीतर शिकायत करें।"
+    out_of_pocket:
+      en: "The warranty has ended, so repair is at your cost. If you believe the fault comes from how the product was made, you can still complain within 2 years of the purchase date. Get a written report from an authorised service centre saying so, keep your bill, and start with the brand's customer care. A complaint filed at the District Commission costs nothing when the price you paid is up to Rs 5 lakh."
+      hi: "वारंटी खत्म हो चुकी है, इसलिए मरम्मत का खर्च आपको देना होगा। अगर आपको लगता है कि खराबी बनावट की कमी से है, तो आप खरीद की तारीख से 2 साल के भीतर शिकायत कर सकते हैं। इसके लिए अधिकृत सर्विस सेंटर से लिखित रिपोर्ट लें, अपना बिल संभालकर रखें और पहले कंपनी के कस्टमर केयर से शुरू करें। जिस सामान की कीमत 5 लाख रुपये तक है, उसकी शिकायत ज़िला आयोग में बिना फ़ीस के दर्ज होती है।"
+    limitation_passed:
+      en: "More than 2 years have passed since you bought the product, so the usual time limit for a complaint may have run out. A Commission can still admit a late complaint if there is a good reason, but do not rely on it. Repair is at your cost."
+      hi: "उत्पाद खरीदे हुए 2 साल से ज़्यादा हो चुके हैं, इसलिए शिकायत की आम समय-सीमा निकल चुकी हो सकती है। ठोस कारण हो तो आयोग देर से की गई शिकायत भी ले सकता है, पर इस पर भरोसा न करें। मरम्मत का खर्च आपको देना होगा।"
+    assumed_warranty_notice:
+      en: "We used the typical warranty for this kind of product, not your own. Please check your warranty card or the brand's website to confirm it."
+      hi: "हमने आपकी नहीं, इस तरह के उत्पाद की सामान्य वारंटी मानी है। पक्का करने के लिए अपना वारंटी कार्ड या कंपनी की वेबसाइट देखें।"
+    forum_state:
+      en: "The price you paid is above Rs 50 lakh, so the complaint goes to the State Commission, not the District Commission."
+      hi: "आपके दिए मूल्य 50 लाख रुपये से ऊपर है, इसलिए शिकायत ज़िला आयोग में नहीं, राज्य आयोग में जाएगी।"
+    forum_national:
+      en: "The price you paid is above Rs 2 crore, so the complaint goes to the National Commission."
+      hi: "आपके दिए मूल्य 2 करोड़ रुपये से ऊपर है, इसलिए शिकायत राष्ट्रीय आयोग में जाएगी।"
+
+warranty_lookup:
+  steps:
+    - {en: "Ask for the brand and model number.", hi: "कंपनी का नाम और मॉडल नंबर पूछें।"}
+    - {en: "Open the brand's warranty page or righttorepairindia.gov.in (the portal searches by company or product name, not by model) and tell the user what to look for: unit warranty, longer cover on parts, and whether the warranty starts at purchase or installation.", hi: "कंपनी का वारंटी पेज या righttorepairindia.gov.in (पोर्टल कंपनी या उत्पाद के नाम से खोजता है, मॉडल नंबर से नहीं) खोलें और बताएँ कि क्या देखना है: पूरी वारंटी, पुर्ज़ों पर लंबी वारंटी, और वारंटी खरीद से शुरू होती है या इंस्टॉलेशन से।"}
+    - {en: "The user pastes the text or uploads a screenshot. Read it and fill the warranty fields.", hi: "उपयोगकर्ता लिखा हुआ पेस्ट करे या स्क्रीनशॉट डाले। उसे पढ़कर वारंटी की जानकारी भरें।"}
+    - {en: "If the user cannot find it, use the product pack's typical value and mark the result assumed.", hi: "अगर उपयोगकर्ता को न मिले तो उत्पाद पैक की सामान्य वारंटी लें और नतीजे पर 'अनुमानित' लिखें।"}
+
+intake:
+  flow:
+    - {id: safety_check, en: "Safety check first, on every path.", hi: "हर रास्ते पर सबसे पहले सुरक्षा की जाँच।"}
+    - {id: cover_check, en: "Check for a warranty, extended warranty, AMC or card benefit. Do not interfere with that route.", hi: "वारंटी, एक्सटेंडेड वारंटी, AMC या कार्ड लाभ की जाँच करें। उस रास्ते में दखल न दें।"}
+    - {id: choice, en: "Let the user choose: contact the brand or seller under the cover, or fix it themselves with guidance.", hi: "उपयोगकर्ता चुने: कवर के तहत कंपनी या विक्रेता से संपर्क, या मार्गदर्शन के साथ खुद ठीक करना।"}
+    - {id: advice_on_request, en: "Give a recommendation whenever the user asks for one.", hi: "उपयोगकर्ता माँगे तो सलाह दें।"}
+  warn_before_diy_in_warranty:
+    en: "Your product is under warranty. Opening it or repairing it yourself can end the warranty. Basic cleaning and a reset are safe."
+    hi: "आपका उत्पाद वारंटी में है। खुद खोलने या मरम्मत करने से वारंटी खत्म हो सकती है। सामान्य सफ़ाई और रीसेट सुरक्षित हैं।"
+
+routes:
+  ladder:
+    - {id: brand_seller, template: brand_seller_letter, en: "Write to the brand's customer care and the seller. Keep the complaint number.", hi: "कंपनी के कस्टमर केयर और विक्रेता को लिखें। शिकायत नंबर संभालकर रखें।"}
+    - {id: nch, template: nch_grievance, en: "Register a grievance with the National Consumer Helpline. It is free and can take up to 30 days.", hi: "राष्ट्रीय उपभोक्ता हेल्पलाइन में शिकायत दर्ज करें। यह मुफ़्त है और 30 दिन तक लग सकते हैं।"}
+    - {id: notice, template: notice_before_complaint, required_in_app: true, en: "Send a notice before you file and wait for the reply period. It does not stop the 2-year limit counted from the purchase date, so send it early.", hi: "शिकायत दर्ज करने से पहले नोटिस भेजें और जवाब की अवधि का इंतज़ार करें। इससे खरीद की तारीख से गिनी जा रही 2 साल की समय-सीमा नहीं रुकती, इसलिए इसे जल्दी भेजें।"}
+    - {id: commission, template: district_commission_complaint, en: "File on e-Jagriti with the documents listed in the pack.", hi: "पैक में दी गई सूची के कागज़ों के साथ e-Jagriti पर शिकायत दर्ज करें।"}
+  filing_mode:
+    question: {en: "Will you file the complaint yourself or through an advocate?", hi: "क्या आप शिकायत खुद दर्ज करेंगे या अधिवक्ता (advocate) के ज़रिए?"}
+    options:
+      self: {en: "File myself on e-Jagriti. Covered prepares the Index, complaint, Synopsis, Memo of Parties and Affidavit. You get the affidavit notarised and add your own annexures.", hi: "खुद e-Jagriti पर दर्ज करें। Covered अनुक्रमणिका (Index), शिकायत, सार (Synopsis), पक्षकारों का ज्ञापन (Memo of Parties) और शपथ-पत्र (Affidavit) तैयार करता है। शपथ-पत्र नोटरी से सत्यापित कराना और अपने अनुलग्नक जोड़ना आपको करना होगा।"}
+      advocate: {en: "Through an advocate. Give the advocate the Covered pack. The advocate supplies the Vakalatnama and files for you.", hi: "अधिवक्ता के ज़रिए। अधिवक्ता को Covered का पैक दें। वकालतनामा (Vakalatnama) अधिवक्ता देते हैं और वही आपकी ओर से दर्ज करते हैं।"}
+      unsure: {en: "Not sure. A consumer may file in person; an advocate handles the procedure for you. Choose what suits you.", hi: "पक्का नहीं। उपभोक्ता स्वयं भी शिकायत दर्ज कर सकता है; अधिवक्ता प्रक्रिया आपके लिए संभालते हैं। जो आपके लिए ठीक हो, चुनें।"}
+  nch_form_fields:
+    - {field: grievance_type, required: true}
+    - {field: grievance_classification, required: true}
+    - {field: company, required: true, note: "If the company is not listed, select Other and type the name."}
+    - {field: sector_industry, required: true}
+    - {field: category, required: true}
+    - {field: nature_of_grievance, required: true}
+    - {field: product_value, required: true}
+    - {field: dealer_details, required: false, note: "Name, address, email, contact number. Improves the chance of redressal."}
+    - {field: grievance_details, required: true, template_field: nch_details_text}
+    - {field: purchase_district_state, required: true}
+    - {field: expectation, required: true}
+    - {field: registered_with_company, required: true, note: "Answer Yes and give the company's complaint number in the details."}
+    - {field: documents, required: false, note: "Up to 3 files. JPG, JPEG, PNG, DOC or PDF. Maximum 5 MB each. No double extensions such as 1.file1.doc."}
+  special:
+    online_purchase: {en: "Bought online: start with the platform's grievance officer, who must acknowledge in 48 hours and redress in one month.", hi: "ऑनलाइन खरीदा हो तो प्लेटफ़ॉर्म के शिकायत अधिकारी से शुरू करें। वे 48 घंटे में पावती दें और एक महीने में निपटारा करें।"}
+    dth: {en: "DTH service: start with the operator's customer care, then its nodal officer.", hi: "DTH सेवा में पहले ऑपरेटर के कस्टमर केयर, फिर उसके नोडल अधिकारी से संपर्क करें।"}
+    emergency: {en: "Emergency: call 112. LPG leak: call 1906.", hi: "आपातकाल में 112 पर कॉल करें। LPG रिसाव में 1906 पर।"}
+
+contacts:
+  - {id: nch, name: "National Consumer Helpline", phones: ["1915", "1800-11-4000"], hours: "8 AM to 8 PM daily except national holidays", whatsapp: "+91 8800001915", sms: "8800001915", email: "nch-ca@gov.in", web: "https://consumerhelpline.gov.in", source: nch_contact}
+  - {id: ejagriti, name: "e-Jagriti", web: "https://e-jagriti.gov.in", source: pib_ejagriti}
+  - {id: rtr, name: "Right to Repair portal", web: "https://righttorepairindia.gov.in", source: rtr_portal_home}
+  - {id: emergency, name: "Emergency", phones: ["112"], note: "LPG leak 1906", source: pib_112}
+
+# Golden cases for the who-pays logic. Inputs are replayed by validate_country.py.
+# months_* are numbers; null means unknown (the app must ask).
+golden_cases:
+  - {id: in01, market: in, desc: "6 months old, 12-month warranty", input: {purchase_months: 6, warranty_source: card, unit_warranty_months: 12, fault_first_seen_months_ago: 1, price_inr: 30000}, expect: {outcome: brand_warranty}}
+  - {id: in02, market: in, desc: "18 months, 12-month warranty, no plan, no signal (EU example says statutory_rights)", input: {purchase_months: 18, warranty_source: card, unit_warranty_months: 12, fault_first_seen_months_ago: 1, price_inr: 40000}, expect: {outcome: out_of_pocket}}
+  - {id: in03, market: in, desc: "18 months, extended warranty running", input: {purchase_months: 18, warranty_source: card, unit_warranty_months: 12, plan_active: true, fault_first_seen_months_ago: 1, price_inr: 40000}, expect: {outcome: protection_plan, letter: plan_provider_claim}}
+  - {id: in04, market: in, desc: "AC 36 months, compressor failed, 60-month compressor cover", input: {purchase_months: 36, warranty_source: brand_site, unit_warranty_months: 12, part_cover_months: 60, fault_first_seen_months_ago: 1, price_inr: 45000}, expect: {outcome: brand_warranty}}
+  - {id: in05, market: in, desc: "Fridge 20 months, same fault after brand repair, fault first seen 8 months ago", input: {purchase_months: 20, warranty_source: card, unit_warranty_months: 12, signals: [same_fault_after_repair], fault_first_seen_months_ago: 8, price_inr: 30000}, expect: {outcome: statutory_rights, forum: district, fee_inr: 0}}
+  - {id: in06, market: in, desc: "Phone 8 months, liquid damage, no plan", input: {purchase_months: 8, warranty_source: card, unit_warranty_months: 12, excluded_damage: true, fault_first_seen_months_ago: 1, price_inr: 25000}, expect: {outcome: out_of_pocket}}
+  - {id: in07, market: in, desc: "Phone 8 months, liquid damage, insurance running", input: {purchase_months: 8, warranty_source: card, unit_warranty_months: 12, excluded_damage: true, plan_active: true, fault_first_seen_months_ago: 1, price_inr: 25000}, expect: {outcome: protection_plan}}
+  - {id: in08, market: in, desc: "40 months since purchase, brand refused repair: outside 2 years from purchase", input: {purchase_months: 40, warranty_source: card, unit_warranty_months: 12, signals: [brand_refused_repair_in_warranty], fault_first_seen_months_ago: 31, price_inr: 30000}, expect: {outcome: out_of_pocket, message: limitation_passed}}
+  - {id: in09, market: in, desc: "TV defective on delivery, seller refused return", input: {purchase_months: 0, warranty_source: card, unit_warranty_months: 12, signals: [seller_refused_return_of_defective_goods], fault_first_seen_months_ago: 0, price_inr: 35000}, expect: {outcome: brand_warranty}}
+  - {id: in10, market: in, desc: "Two-wheeler exactly 24 months since purchase, 12-month warranty, brand refused repair: the last day still inside 2 years", input: {purchase_months: 24, warranty_source: card, unit_warranty_months: 12, signals: [brand_refused_repair_in_warranty], fault_first_seen_months_ago: 7, price_inr: 120000}, expect: {outcome: statutory_rights, forum: district, fee_inr: 0}}
+  - {id: in11, market: in, desc: "Phone 8 months, dropped (excluded damage), brand refused: must not become statutory_rights", input: {purchase_months: 8, warranty_source: card, unit_warranty_months: 12, excluded_damage: true, signals: [brand_refused_repair_in_warranty], fault_first_seen_months_ago: 1, price_inr: 25000}, expect: {outcome: out_of_pocket}}
+  - {id: in12, market: in, desc: "No warranty card, lookup failed, pack says 12 months, 6 months old: typical value used and marked assumed", input: {purchase_months: 6, warranty_source: pack_hint, unit_warranty_months: 12, fault_first_seen_months_ago: 1, price_inr: 30000}, expect: {outcome: brand_warranty, assumed: true, notice: assumed_warranty_notice}}
+  - {id: in13, market: in, desc: "60 months since purchase, repeat fault, fault date unknown: no question needed, the 2 years from purchase have passed", input: {purchase_months: 60, warranty_source: card, unit_warranty_months: 12, signals: [same_fault_after_repair], fault_first_seen_months_ago: null, price_inr: 30000}, expect: {outcome: out_of_pocket, message: limitation_passed}}
+  - {id: in14, market: in, desc: "No warranty card and no pack hint: the app asks for the warranty length", input: {purchase_months: 6, warranty_source: none, unit_warranty_months: null, fault_first_seen_months_ago: 1, price_inr: 30000}, expect: {ask: [unit_warranty_months]}}
+  - {id: in15, market: in, desc: "No card, user found the terms on the brand site: 12 months, 6 months old", input: {purchase_months: 6, warranty_source: brand_site, unit_warranty_months: 12, fault_first_seen_months_ago: 1, price_inr: 30000}, expect: {outcome: brand_warranty, assumed: false}}
+  - {id: in16, market: in, desc: "18 months, card extended warranty, bought on that card, benefit active", input: {purchase_months: 18, warranty_source: card, unit_warranty_months: 12, card: {paid_with_card: true, benefit: extended_warranty, benefit_active: true}, fault_first_seen_months_ago: 1, price_inr: 40000}, expect: {outcome: protection_plan, letter: plan_provider_claim, addressee: card_issuer}}
+  - {id: in17, market: in, desc: "14 months, card purchase protection only (theft and accidental damage) does not extend the warranty", input: {purchase_months: 14, warranty_source: card, unit_warranty_months: 12, card: {paid_with_card: true, benefit: purchase_protection, benefit_active: true}, fault_first_seen_months_ago: 1, price_inr: 40000}, expect: {outcome: out_of_pocket}}
+  - {id: in18, market: in, desc: "Failed early at 18 months, no repair ever attempted, no signal: failing early is not a signal", input: {purchase_months: 18, warranty_source: card, unit_warranty_months: 12, fault_first_seen_months_ago: 1, price_inr: 55000}, expect: {outcome: out_of_pocket}}
+  - {id: in19, market: in, desc: "AC bought 12.5 months ago, installed 3 weeks later, 12 months from installation: still in warranty", input: {purchase_months: 12.5, warranty_source: card, unit_warranty_months: 12, starts_from: installation, installation_gap_months: 0.7, fault_first_seen_months_ago: 0.5, price_inr: 45000}, expect: {outcome: brand_warranty}}
+  - {id: in20, market: in, desc: "Same AC, warranty counted from purchase: out of warranty", input: {purchase_months: 12.5, warranty_source: card, unit_warranty_months: 12, starts_from: purchase, installation_gap_months: 0.7, fault_first_seen_months_ago: 0.5, price_inr: 45000}, expect: {outcome: out_of_pocket}}
+  - {id: in21, market: in, desc: "25 months since purchase, fault first seen only 3 months ago, brand refused: the 2 years run from purchase, so passed", input: {purchase_months: 25, warranty_source: card, unit_warranty_months: 12, signals: [brand_refused_repair_in_warranty], fault_first_seen_months_ago: 3, price_inr: 30000}, expect: {outcome: out_of_pocket, message: limitation_passed}}
+  - {id: in22, market: in, desc: "Statutory route, price Rs 12 lakh: District Commission, fee Rs 400", input: {purchase_months: 20, warranty_source: card, unit_warranty_months: 12, signals: [same_fault_after_repair], fault_first_seen_months_ago: 6, price_inr: 1200000}, expect: {outcome: statutory_rights, forum: district, fee_inr: 400}}
+  - {id: in23, market: in, desc: "Statutory route, price Rs 60 lakh: State Commission, fee Rs 2,000", input: {purchase_months: 20, warranty_source: card, unit_warranty_months: 12, signals: [same_fault_after_repair], fault_first_seen_months_ago: 6, price_inr: 6000000}, expect: {outcome: statutory_rights, forum: state, fee_inr: 2000}}
+  - {id: in24, market: in, desc: "30 months since purchase, warranty ended, no signal: out of pocket and the 2-year message, not the evidence message", input: {purchase_months: 30, warranty_source: card, unit_warranty_months: 12, fault_first_seen_months_ago: 2, price_inr: 30000}, expect: {outcome: out_of_pocket, message: limitation_passed}}
