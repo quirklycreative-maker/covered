@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://covered.app/schema/product-pack.json",
+  "title": "Covered product pack",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "id", "version", "owner", "display_name", "identification", "symptoms", "fix_cards", "escalate_when", "golden_cases"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]{2,40}$" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "owner": { "type": "string", "minLength": 2 },
+    "display_name": { "$ref": "#/$defs/text" },
+    "aliases": { "type": "array", "items": { "type": "string" } },
+    "identification": {
+      "type": "object", "additionalProperties": false,
+      "required": ["nameplate_fields", "where_to_look"],
+      "properties": {
+        "nameplate_fields": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["key", "label", "required"],
+            "properties": {
+              "key": { "type": "string", "pattern": "^[a-z_]+$" },
+              "label": { "$ref": "#/$defs/text" },
+              "required": { "type": "boolean" },
+              "pattern": { "type": "string" },
+              "example": { "type": "string" }
+            }
+          }
+        },
+        "where_to_look": { "$ref": "#/$defs/text" },
+        "brands": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "error_codes": {
+      "type": "array",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["code", "symptom"],
+        "properties": {
+          "code": { "type": "string" },
+          "brand": { "type": "string" },
+          "meaning": { "$ref": "#/$defs/text" },
+          "symptom": { "type": "string" },
+          "source": { "type": "string" }
+        }
+      }
+    },
+    "symptoms": {
+      "type": "array", "minItems": 3, "maxItems": 8,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "label", "fix_card"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z][a-z0-9_]+$" },
+          "label": { "$ref": "#/$defs/text" },
+          "ask_first": { "$ref": "#/$defs/text" },
+          "phrases": { "type": "array", "items": { "type": "string" } },
+          "fix_card": { "type": "string" }
+        }
+      }
+    },
+    "fix_cards": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "title", "steps", "if_not_fixed"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z][a-z0-9_]+$" },
+          "title": { "$ref": "#/$defs/text" },
+          "time_minutes": { "type": "integer", "minimum": 1, "maximum": 120 },
+          "tools": { "type": "array", "items": { "type": "string" } },
+          "steps": {
+            "type": "array", "minItems": 1, "maxItems": 8,
+            "items": {
+              "type": "object", "additionalProperties": false,
+              "required": ["text", "safety_stop"],
+              "properties": {
+                "text": { "$ref": "#/$defs/text" },
+                "safety_stop": { "type": "boolean" },
+                "stop_if": { "$ref": "#/$defs/text" },
+                "check": { "$ref": "#/$defs/text" },
+                "image": { "type": "string" }
+              }
+            }
+          },
+          "parts": {
+            "type": "array",
+            "items": { "type": "object", "additionalProperties": false, "required": ["name"], "properties": { "name": { "type": "string" }, "typical_price_inr": { "type": "integer" } } }
+          },
+          "if_not_fixed": { "type": "string", "enum": ["escalate", "try_next_card", "let_go"] },
+          "next_card": { "type": "string" },
+          "source": { "type": "string" }
+        }
+      }
+    },
+    "escalate_when": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["condition", "route"],
+        "properties": {
+          "condition": { "$ref": "#/$defs/text" },
+          "route": { "type": "string", "enum": ["brand_service", "technician", "emergency_stop", "replace"] },
+          "say": { "$ref": "#/$defs/text" }
+        }
+      }
+    },
+    "warranty_hints": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "typical_months": { "type": "integer" },
+        "parts_with_longer_cover": { "type": "array", "items": { "type": "object", "required": ["part", "months"], "properties": { "part": { "type": "string" }, "months": { "type": "integer" } } } }
+      }
+    },
+    "golden_cases": {
+      "type": "array", "minItems": 10,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "user_says", "expect_symptom", "expect_fix_card", "expect_outcome"],
+        "properties": {
+          "id": { "type": "string" },
+          "user_says": { "type": "string" },
+          "error_code": { "type": "string" },
+          "expect_symptom": { "type": "string" },
+          "expect_fix_card": { "type": "string" },
+          "expect_safety_stop": { "type": "boolean" },
+          "expect_outcome": { "type": "string", "enum": ["fixed", "escalated", "safety_stop", "let_go"] },
+          "purchase_age": { "type": "string", "enum": ["under_1y", "1_2y", "2_5y", "older"] },
+          "expect_coverage": { "type": "string", "enum": ["brand_warranty", "protection_plan", "statutory_rights", "out_of_pocket"] }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "text": {
+      "type": "object", "additionalProperties": false,
+      "required": ["en"],
+      "properties": { "en": { "type": "string", "minLength": 1 }, "hi": { "type": "string" } }
+    }
+  }
+}

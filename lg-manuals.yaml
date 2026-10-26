@@ -1,0 +1,111 @@
+# LG India owner's manuals for the models covered by the three LG washing-machine packs.
+# Not a pack and not checked by validate.py: it is a reference index so the app and the RAG build can link to, or fetch, the source manuals.
+#
+# How to use:
+#   - support_page is the stable LG India page for the model. If a pdf_url stops working, open support_page and copy the new Owner's Manual link.
+#   - pdf_url was fetched on 25 Oct 2026 and returned a real PDF (checked: %PDF header, size, sha256 below). sha256 lets you detect that LG replaced the file.
+#   - online_manual_url is LG's HTML manual. It was read from LG's page but NOT opened or downloaded, so treat it as unchecked.
+#   - Some models share one manual file (shared_with). Pack lines marked VERIFIED cite these manuals by section name.
+#   - The PDFs themselves are LG's copyright and are NOT stored in this repository; they were saved locally in Downloads\lg-manuals\.
+retrieved: "2026-10-25"
+source_site: "https://www.lg.com/in/support/product-support/manuals-software/"
+
+manuals:
+  - models: ["FHB1207Z2W"]
+    pack: lg-front-load-washer
+    family: front-load
+    support_page: "https://www.lg.com/in/support/product-support/cs-FHB1207Z2W.ABWQEIL/"
+    pdf_url: "https://gscs-b2c.lge.com/open/downloadFile?fileId=zCEjLMvZoZ7FAPoG5LGUYw"
+    online_manual_url: "http://gscs-manual.lge.com/DFZ/MFL72036418/en-gb/main.html?utm_source=lgweb&utm_medium=dotcom&utm_campaign=base&model=FHB1207Z2W.AGWQEIL&rdate="
+    language: en
+    pdf_pages: 44
+    pdf_bytes: 2230512
+    page_date: "2025-05-15"
+    sha256: "0a1ec7072fca6bafed70e05350e09cb3fc93388da8ed1df3b537219d3ddcef4e"
+    variant_checked: "FHB1207Z2W.ABWQEIL (LG also lists FHB1207Z2W.AGWQEIL)"
+    shared_with: ["FHB1207Z2M"]
+    note: "Byte-identical to the FHB1207Z2M file (same sha256)."
+
+  - models: ["FHB1207Z2M"]
+    pack: lg-front-load-washer
+    family: front-load
+    support_page: "https://www.lg.com/in/support/product-support/cs-FHB1207Z2M.ABMQEIL/"
+    pdf_url: "https://gscs-b2c.lge.com/open/downloadFile?fileId=4nOoNsmOBl9YJ9WTbcOtBw"
+    online_manual_url: "http://gscs-manual.lge.com/DFZ/MFL72036418/en-gb/main.html?utm_source=lgweb&utm_medium=dotcom&utm_campaign=base&model=FHB1207Z2M.AMBQEIL&rdate="
+    language: en
+    pdf_pages: 44
+    pdf_bytes: 2230512
+    page_date: "2025-05-15"
+    sha256: "0a1ec7072fca6bafed70e05350e09cb3fc93388da8ed1df3b537219d3ddcef4e"
+    variant_checked: "page title uses suffix ABMQEIL while the online manual link uses AMBQEIL; confirm the suffix on the rating plate"
+    shared_with: ["FHB1207Z2W"]
+
+  - models: ["FHP1209Z5M"]
+    pack: lg-front-load-washer
+    family: front-load
+    support_page: "https://www.lg.com/in/support/product-support/cs-FHP1209Z5M.AMBQEIL/"
+    pdf_url: "https://gscs-b2c.lge.com/open/downloadFile?fileId=Uo8XltTTCYgIJiSWdnFm2g"
+    online_manual_url: "http://gscs-manual.lge.com/DFZ/MFL72036412/en-gb/main.html?utm_source=lgweb&utm_medium=dotcom&utm_campaign=base&model=FHP1209Z5M.AMBQEIL&rdate="
+    language: en
+    pdf_pages: 52
+    pdf_bytes: 2757379
+    page_date: "2025-05-15"
+    sha256: "24a3c751d80bc571c5221bfabf97f4a1ebeb97a84b3f3df43acd83444e1fe1b3"
+    variant_checked: "FHP1209Z5M.AMBQEIL"
+    note: "The only front-load manual that lists the AE code (water leakage, call for service)."
+
+  - models: ["T70VBMB1Z", "T80VBMB4Z"]
+    pack: lg-top-load-washer
+    family: top-load-smart-inverter
+    support_page: "https://www.lg.com/in/support/product-support/cs-T70VBMB1Z.ABMQEIL/"
+    support_page_alt: "https://www.lg.com/in/support/product-support/cs-T80VBMB4Z.ABMQEIL/"
+    pdf_url: "https://gscs-b2c.lge.com/open/downloadFile?fileId=JjoIHmA2nAYWPOBp9gEA"
+    online_manual_url: "http://gscs-manual.lge.com/DFZ/MFL72021931/en-gb/main.html?utm_source=lgweb&utm_medium=dotcom&utm_campaign=base&model=T70VBMB1Z.ABMQEIL&rdate="
+    language: en
+    pdf_pages: 48
+    pdf_bytes: 2316215
+    page_date: "2025-03-11"
+    sha256: "87f90a1127e688be8fdd73d47066dd5b997085d1016648bb1e098cf133993ded"
+    variant_checked: "T70VBMB1Z.ABMQEIL and T80VBMB4Z.ABMQEIL list the same file"
+    note: "One manual for the T80VB*, T75VB* and T70VB* range. The lint filter is fitted on some models only. Contains the printed warranty text (2 years on all parts except plastic parts, consumables, filters, hoses and top cover; 8 years additional on the inverter motor only)."
+
+  - models: ["THD08SJM"]
+    pack: lg-top-load-washer
+    family: top-load-ai-direct-drive
+    support_page: "https://www.lg.com/in/support/product-support/cs-THD08SJM.ABMQEIL/"
+    pdf_url: "https://gscs-b2c.lge.com/open/downloadFile?fileId=vLH4u4JLZCjBbeAY7wYSw"
+    online_manual_url: "http://gscs-manual.lge.com/DFZ/MFL72021921/en-gb/main.html?utm_source=lgweb&utm_medium=dotcom&utm_campaign=base&model=THD08SJM.ABMQEIL&rdate="
+    language: en
+    pdf_pages: 56
+    pdf_bytes: 3636055
+    page_date: "2024-06-18"
+    sha256: "c2ff0ff2568f0b5c1dfc9b57d95d922f7622b9b42f5889301236e05bccfd9716"
+    variant_checked: "THD08SJM.ABMQEIL"
+
+  - models: ["THD09SWM"]
+    pack: lg-top-load-washer
+    family: top-load-ai-direct-drive
+    support_page: "https://www.lg.com/in/support/product-support/cs-THD09SWM.ABMQEIL/"
+    pdf_url: "https://gscs-b2c.lge.com/open/downloadFile?fileId=fUh8churQISOboRPgx6eoA"
+    online_manual_url: "http://gscs-manual.lge.com/DFZ/MFL72021921/en-gb/main.html?utm_source=lgweb&utm_medium=dotcom&utm_campaign=base&model=THD09SWM.ABMQEIL&rdate="
+    language: en
+    pdf_pages: 56
+    pdf_bytes: 3262168
+    page_date: "2025-02-05"
+    sha256: "c0503f2105806c9baa5912a9be4151f23fe406ef991f10f0ab1ebe0ee6c24423"
+    variant_checked: "THD09SWM.ABMQEIL"
+
+  - models: ["P7020NGAZ", "P1155SKAZ"]
+    pack: lg-semi-auto-washer
+    family: semi-automatic
+    support_page: "https://www.lg.com/in/support/product-support/cs-P7020NGAZ.ADGQEIL/"
+    support_page_alt: "https://www.lg.com/in/support/product-support/cs-P1155SKAZ.ABMQEIL/"
+    pdf_url: "https://gscs-b2c.lge.com/open/downloadFile?fileId=ySkvD8SiAVmTaIsHAqDRA"
+    online_manual_url: "http://gscs-manual.lge.com/DFZ/MFL72021901/en-gb/main.html?utm_source=lgweb&utm_medium=dotcom&utm_campaign=base&model=P7020NGAZ.ADGQEIL&rdate="
+    language: "en+hi"
+    pdf_pages: 2
+    pdf_bytes: 15122969
+    page_date: "2025-02-04"
+    sha256: "5b3ec2ad605de814cb3f68b16369364e9ffbc8fc59ebde6deb06eed3efbb947e"
+    variant_checked: "P7020NGAZ.ADGQEIL and P1155SKAZ.ABMQEIL list the same file"
+    note: "A two-page printed booklet (MFL68505416 Rev.03) in English and Hindi covering the whole P115*/P105*/P70* range; mostly images, so text extraction is poor and the pages were read visually. The bilingual troubleshooting and safety text can be reused as a Hindi reference."

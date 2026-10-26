@@ -1,0 +1,144 @@
+# Example product pack — a generic split air conditioner.
+# Copy this folder, change the id, and replace the content. Every field is explained in PACK-SPEC.md.
+schema_version: 1
+id: split-ac
+version: 0.1.0
+owner: "@github-handle"
+display_name: { en: "Split air conditioner", hi: "स्प्लिट एसी" }
+aliases: ["AC", "split AC", "wall AC", "एसी"]
+
+identification:
+  where_to_look:
+    en: "Sticker on the right side of the indoor unit, or on the outdoor unit. The BEE star label is on the front."
+    hi: "इनडोर यूनिट की दाईं तरफ का स्टिकर, या आउटडोर यूनिट पर। BEE स्टार लेबल सामने होता है।"
+  nameplate_fields:
+    - { key: brand, label: { en: "Brand", hi: "ब्रांड" }, required: true, example: "Voltas" }
+    - { key: model, label: { en: "Model number", hi: "मॉडल नंबर" }, required: true, pattern: "^[A-Z0-9][A-Z0-9 /-]{3,30}$", example: "183V Vectra" }
+    - { key: capacity_ton, label: { en: "Capacity (ton)", hi: "क्षमता (टन)" }, required: false, example: "1.5" }
+    - { key: star_rating, label: { en: "BEE star rating", hi: "BEE स्टार रेटिंग" }, required: false, example: "3" }
+  brands: ["Voltas", "LG", "Samsung", "Daikin", "Blue Star", "Lloyd", "Hitachi", "Carrier"]
+
+error_codes:
+  - { code: "E1", brand: "Voltas", meaning: { en: "Indoor temperature sensor fault" }, symptom: error_code, source: "Voltas owner's manual 2024, p. 18" }
+  - { code: "CH05", brand: "LG", meaning: { en: "Indoor–outdoor communication error" }, symptom: error_code, source: "LG service guide" }
+  - { code: "E5", brand: "Samsung", meaning: { en: "Indoor pipe sensor open/short" }, symptom: error_code, source: "Samsung manual" }
+
+symptoms:
+  - id: not_cooling
+    label: { en: "Not cooling", hi: "ठंडा नहीं कर रहा" }
+    ask_first: { en: "Is the fan running but the air is not cold?", hi: "पंखा चल रहा है पर हवा ठंडी नहीं?" }
+    phrases: ["not cooling", "thanda nahi", "garam hawa", "cooling kam"]
+    fix_card: filters_and_mode
+  - id: water_dripping
+    label: { en: "Water dripping from the indoor unit", hi: "इनडोर यूनिट से पानी टपक रहा है" }
+    phrases: ["paani tapak raha", "leaking", "water drip"]
+    fix_card: drain_line
+  - id: error_code
+    label: { en: "Error code on the display", hi: "डिस्प्ले पर एरर कोड" }
+    phrases: ["error", "code", "E1", "blinking"]
+    fix_card: decode_and_reset
+  - id: bad_smell
+    label: { en: "Bad smell when it starts", hi: "चालू होने पर बदबू" }
+    phrases: ["smell", "badbu", "musty"]
+    fix_card: clean_filters_dry_mode
+  - id: tripping
+    label: { en: "Switches off or trips the breaker", hi: "बंद हो जाता है या ब्रेकर गिरता है" }
+    phrases: ["trip", "band ho jata", "MCB"]
+    fix_card: tripping_check
+
+fix_cards:
+  - id: filters_and_mode
+    title: { en: "Clean the filters and check the mode", hi: "फ़िल्टर साफ़ करें और मोड जाँचें" }
+    time_minutes: 15
+    tools: ["none"]
+    steps:
+      - text: { en: "Switch the AC off at the remote and at the wall switch.", hi: "रिमोट और दीवार के स्विच से एसी बंद करें।" }
+        safety_stop: false
+      - text: { en: "Open the front panel of the indoor unit and lift out the two mesh filters.", hi: "इनडोर यूनिट का फ्रंट पैनल खोलें और दोनों जाली फ़िल्टर निकालें।" }
+        safety_stop: false
+        check: { en: "Are the filters grey with dust?", hi: "क्या फ़िल्टर धूल से भरे हैं?" }
+      - text: { en: "Wash the filters under a tap, let them dry, and put them back.", hi: "फ़िल्टर नल के नीचे धोएँ, सुखाएँ और वापस लगाएँ।" }
+        safety_stop: false
+      - text: { en: "Switch on. Set mode to Cool (snowflake), temperature 24 °C, fan High.", hi: "चालू करें। मोड Cool (बर्फ़ का निशान), तापमान 24 °C, पंखा High रखें।" }
+        safety_stop: false
+      - text: { en: "Go outside: is the outdoor unit's fan spinning and the air coming out warm?", hi: "बाहर देखें: क्या आउटडोर यूनिट का पंखा घूम रहा है और हवा गर्म निकल रही है?" }
+        safety_stop: false
+        check: { en: "Wait 10 minutes. Is the room air now cold?", hi: "10 मिनट रुकें। क्या अब हवा ठंडी है?" }
+    if_not_fixed: escalate
+    source: "Generic manufacturer guidance; verified against Voltas and LG manuals"
+
+  - id: drain_line
+    title: { en: "Clear the drain line", hi: "ड्रेन पाइप साफ़ करें" }
+    time_minutes: 20
+    steps:
+      - text: { en: "Switch the AC off at the wall switch.", hi: "दीवार के स्विच से एसी बंद करें।" }
+        safety_stop: false
+      - text: { en: "Find the thin drain pipe coming out of the wall near the outdoor unit. Check it is not kinked or blocked by dust.", hi: "आउटडोर यूनिट के पास दीवार से निकलने वाला पतला ड्रेन पाइप ढूँढें। देखें कि वह मुड़ा या बंद तो नहीं।" }
+        safety_stop: false
+      - text: { en: "If blocked, blow through it or flush with a little water from the indoor tray side.", hi: "अगर बंद है, तो फूँक मारें या इनडोर ट्रे की तरफ से थोड़ा पानी डालें।" }
+        safety_stop: false
+      - text: { en: "Clean the filters as well; blocked filters make the coil ice up and drip.", hi: "फ़िल्टर भी साफ़ करें; बंद फ़िल्टर से कॉइल पर बर्फ़ जमती है और पानी टपकता है।" }
+        safety_stop: false
+        check: { en: "Run for 30 minutes. Still dripping?", hi: "30 मिनट चलाएँ। अब भी टपक रहा है?" }
+    if_not_fixed: escalate
+
+  - id: decode_and_reset
+    title: { en: "Read the code and reset", hi: "कोड पढ़ें और रीसेट करें" }
+    time_minutes: 10
+    steps:
+      - text: { en: "Note the exact code on the display, letter by letter.", hi: "डिस्प्ले पर कोड ध्यान से नोट करें।" }
+        safety_stop: false
+      - text: { en: "Switch off at the wall switch, wait two minutes, switch on again.", hi: "दीवार के स्विच से बंद करें, दो मिनट रुकें, फिर चालू करें।" }
+        safety_stop: false
+        check: { en: "Did the code come back?", hi: "क्या कोड फिर आया?" }
+    if_not_fixed: escalate
+
+  - id: clean_filters_dry_mode
+    title: { en: "Clean the filters and run Dry mode", hi: "फ़िल्टर साफ़ करें और Dry मोड चलाएँ" }
+    time_minutes: 40
+    steps:
+      - text: { en: "Clean the mesh filters as in the first card.", hi: "पहले कार्ड की तरह जाली फ़िल्टर साफ़ करें।" }
+        safety_stop: false
+      - text: { en: "Run the AC in Dry mode (water-drop symbol) for 30 minutes with the windows open.", hi: "खिड़कियाँ खोलकर एसी को 30 मिनट Dry मोड (बूँद का निशान) में चलाएँ।" }
+        safety_stop: false
+        check: { en: "Smell gone?", hi: "बदबू गई?" }
+    if_not_fixed: escalate
+
+  - id: tripping_check
+    title: { en: "Check before you call anyone", hi: "किसी को बुलाने से पहले जाँचें" }
+    time_minutes: 5
+    steps:
+      - text: { en: "If you see sparks, smoke or smell burning, switch off at the main board now and do not switch it on again.", hi: "अगर चिंगारी, धुआँ या जलने की गंध हो, तो तुरंत मेन बोर्ड से बंद करें और दोबारा चालू न करें।" }
+        safety_stop: true
+        stop_if: { en: "Sparks, smoke or a burning smell", hi: "चिंगारी, धुआँ या जलने की गंध" }
+      - text: { en: "Is anything else heavy (geyser, iron) on the same switch? Try with those off.", hi: "क्या उसी स्विच पर कोई और भारी चीज़ (गीज़र, प्रेस) है? उन्हें बंद करके देखें।" }
+        safety_stop: false
+        check: { en: "Does it still trip?", hi: "अब भी ट्रिप होता है?" }
+    if_not_fixed: escalate
+
+escalate_when:
+  - condition: { en: "Sparks, smoke, burning smell, or water near the electrics", hi: "चिंगारी, धुआँ, जलने की गंध, या बिजली के पास पानी" }
+    route: emergency_stop
+    say: { en: "Switch it off at the main board. This needs a technician, not a fix at home.", hi: "मेन बोर्ड से बंद करें। इसके लिए टेक्नीशियन चाहिए, घर पर ठीक नहीं होगा।" }
+  - condition: { en: "Filters clean, mode correct, outdoor fan running, still no cooling after 15 minutes", hi: "फ़िल्टर साफ़, मोड सही, आउटडोर पंखा चल रहा, फिर भी 15 मिनट बाद ठंडक नहीं" }
+    route: brand_service
+    say: { en: "This is usually low gas or the compressor. The brand service centre handles it, and the compressor is often under a longer warranty.", hi: "यह आमतौर पर गैस कम या कंप्रेसर की समस्या है। ब्रांड सर्विस सेंटर देखेगा; कंप्रेसर पर अक्सर लंबी वारंटी होती है।" }
+  - condition: { en: "Error code returns after a reset", hi: "रीसेट के बाद भी एरर कोड आता है" }
+    route: brand_service
+
+warranty_hints:
+  typical_months: 12
+  parts_with_longer_cover:
+    - { part: "compressor", months: 60 }
+
+golden_cases:
+  - { id: g01, user_says: "AC thanda nahi kar raha", expect_symptom: not_cooling, expect_fix_card: filters_and_mode, expect_outcome: fixed }
+  - { id: g02, user_says: "The AC runs but the air is warm", expect_symptom: not_cooling, expect_fix_card: filters_and_mode, expect_outcome: escalated, purchase_age: under_1y, expect_coverage: brand_warranty }
+  - { id: g03, user_says: "Paani tapak raha hai indoor unit se", expect_symptom: water_dripping, expect_fix_card: drain_line, expect_outcome: fixed }
+  - { id: g04, user_says: "Display shows E1", error_code: "E1", expect_symptom: error_code, expect_fix_card: decode_and_reset, expect_outcome: escalated, purchase_age: 1_2y, expect_coverage: statutory_rights }
+  - { id: g05, user_says: "It smells musty when it starts", expect_symptom: bad_smell, expect_fix_card: clean_filters_dry_mode, expect_outcome: fixed }
+  - { id: g06, user_says: "Dhuaan aa raha hai AC se", expect_symptom: tripping, expect_fix_card: tripping_check, expect_safety_stop: true, expect_outcome: safety_stop }
+  - { id: g07, user_says: "MCB trip ho jata hai jab AC chalu karo", expect_symptom: tripping, expect_fix_card: tripping_check, expect_outcome: escalated, purchase_age: 2_5y, expect_coverage: out_of_pocket }
+  - { id: g08, user_says: "CH05 on the LG remote", error_code: "CH05", expect_symptom: error_code, expect_fix_card: decode_and_reset, expect_outcome: escalated }
+  - { id: g09, user_says: "cooling bahut kam hai", expect_symptom: not_cooling, expect_fix_card: filters_and_mode, expect_outcome: fixed }
+  - { id: g10, user_says: "Compressor not starting, bought 3 years ago", expect_symptom: not_cooling, expect_fix_card: filters_and_mode, expect_outcome: escalated, purchase_age: 2_5y, expect_coverage: brand_warranty }
